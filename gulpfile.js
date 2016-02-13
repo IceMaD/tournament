@@ -3,16 +3,10 @@ var sass    = require('gulp-sass');
 var connect = require('gulp-connect');
 var ts      = require('gulp-typescript');
 
-gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('./css'));
-});
-
 var tsProject = ts.createProject('tsconfig.json');
 
 var appFolder  = 'app/',
-    distFolder = 'dist/';
+  distFolder = 'dist/';
 
 var staticFiles = [
   appFolder + '**/*.html',
@@ -21,7 +15,7 @@ var staticFiles = [
 ];
 
 gulp.task('sass', function () {
-  return gulp.src(appFolder + 'sass/style.scss')
+  gulp.src(appFolder + 'sass/style.sass')
       .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest(distFolder + 'css'))
       .pipe(connect.reload());
@@ -51,7 +45,7 @@ gulp.task('connect', function() {
 gulp.task('watch', function () {
   gulp.watch([appFolder + '**/*.ts'], ['ts']);
   gulp.watch(staticFiles, ['static']);
-  gulp.watch([appFolder + 'sass/**/*.scss'], ['sass']);
+  gulp.watch([appFolder + 'sass/**/*.*'], ['sass']);
 });
 
 gulp.task('build', ['ts', 'sass', 'static']);

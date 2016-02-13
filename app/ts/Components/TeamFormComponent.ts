@@ -12,7 +12,7 @@ export class TeamFormComponent {
 
   constructor(private _teamHolderService: TeamHolderService) {}
 
-  addTeam() {
+  public addTeam(): void {
     if (!this.model) {
       return;
     }

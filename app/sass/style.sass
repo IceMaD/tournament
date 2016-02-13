@@ -1,0 +1,38 @@
+@import 'ext/reset'
+@import 'ext/variables'
+@import 'ext/mixins'
+
++component('*')
+
+  border: 1px solid red
+
++component(router-outlet)
+
+  display: none
+
++component(flash-box)
+
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+
++component(flash-message)
+
+  display: block
+  padding: 1em
+
+  +modifier(info)
+
+    background-color: cornflowerblue
+    color: white
+
+  +modifier(warning)
+
+    background-color: orange
+    color: white
+
+  +modifier(danger)
+
+    background-color: darkred
+    color: white

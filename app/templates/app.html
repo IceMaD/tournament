@@ -1,1 +1,11 @@
+<flash-box>
+  <flash-message [ngClass]="{
+    '--info': message.type == 'info',
+    '--warning': message.type == 'warning',
+    '--danger': message.type == 'danger'
+  }" *ngFor="#message of flashMessages">
+    {{ message.content }}
+  </flash-message>
+</flash-box>
+
 <router-outlet></router-outlet>

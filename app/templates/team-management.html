@@ -1,9 +1,10 @@
 <div *ngFor="#team of teams">
-  {{ team.name }}
+  <span>{{ team.name }}</span>
+  <button (click)="remove(team)">X</button>
 </div>
 
 <team-form></team-form>
 
 <hr>
 
-<a [routerLink]="['Homepage']">la Home !</a>
+<a [routerLink]="['TreeComponent']">Generate</a>

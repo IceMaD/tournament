@@ -17,4 +17,22 @@ export class TeamHolderService {
 
     return this;
   }
+
+  isFilled(): boolean {
+    return this._teamList.length == 8;
+  }
+
+  removeTeam(team: TeamModel): this {
+
+    for (let i:number = 0; i < this._teamList.length; i++) {
+
+      if (this._teamList[i].name == team.name) {
+        this._teamList.splice(i, 1);
+
+        break;
+      }
+    }
+
+    return this;
+  }
 }

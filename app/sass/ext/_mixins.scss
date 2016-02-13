@@ -1,0 +1,48 @@
+$color: $text-color;
+$font-family: $font;
+
+%scope-reset {
+  color: $color;
+  cursor: default;
+  direction: ltr;
+  font-family: $font-family;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+  visibility: visible;
+  white-space: normal;
+  word-spacing: normal;
+}
+
+@mixin component($name) {
+  #{$name} {
+    @extend %scope-reset;
+
+    @content
+  }
+}
+
+@mixin child($name) {
+  @if & {
+    .#{$name} {
+      @content
+    }
+  } @else {
+    @error 'Childs should always have a parent';
+  }
+}
+
+@mixin modifier($name) {
+  @if & {
+    &.\--#{$name} {
+      @content
+    }
+  } @else {
+    @error 'Modifiers should always have a parent';
+  }
+}
