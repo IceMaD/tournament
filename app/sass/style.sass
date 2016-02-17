@@ -112,3 +112,64 @@
 
     background-color: darkred
     color: white
+
++component(team)
+
+  padding: .5em 1.5em
+  box-shadow: shadow-border('bottom', $dusty-grey)
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  +child(name)
+
+  +child(remove)
+
+    border: 0
+    background-color: $dusty-grey
+    color: $snow-white
+    padding: .5em
+    line-height: 1em
+    min-width: 2em
+    min-height: 2em
+    border-radius: 3px
+    cursor: pointer
+
++component(container)
+
+  margin-top: 3em
+  margin-left: auto
+  margin-right: auto
+  max-width: 600px
+
++component(team-form)
+
+  margin: 1em 0
+
+  +child(input)
+
+    width: 100%
+    padding: .5em
+
++component(button)
+
+  padding: .5em 1.5em
+  text-decoration: none
+  background-color: $blush-pink
+  color: white
+  cursor: pointer
+  border-radius: 3px
+  display: inline-block
+
++component(button-bar)
+
+  display: flex
+  justify-content: space-between
+  text-align: right
+  margin: .5em 0
+
++component(message)
+
+  +child(warning)
+
+    color: $blush-pink

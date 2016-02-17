@@ -20,6 +20,22 @@ $font-family: $font;
   word-spacing: normal;
 }
 
+@function shadow-border($position, $color, $thickness: 1px) {
+  @if('top' == $position) {
+    @return inset 0 #{$thickness} 0 0 $color
+  }
+  @if('bottom' == $position) {
+    @return inset 0 #{-#{$thickness}} 0 0 $color
+  }
+  @if('left' == $position) {
+    @return inset #{$thickness} 0 0 0 $color
+  }
+  @if('right' == $position) {
+    @return inset #{-#{$thickness}} 0 0 0 $color
+  }
+}
+
+
 @mixin component($name) {
   .#{$name} {
     @extend %scope-reset;

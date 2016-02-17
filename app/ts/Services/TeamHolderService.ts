@@ -85,7 +85,7 @@ export class TeamHolderService {
 
     for (let i:number = 0; i < this._teamList.length; i++) {
 
-      if (this._teamList[i].name == team.name) {
+      if (this._teamList[i].id == team.id) {
         this._teamList.splice(i, 1);
 
         break;

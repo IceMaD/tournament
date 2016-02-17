@@ -17,6 +17,10 @@ export class TeamManagementView {
     this.teams = TeamHolderService.get();
   }
 
+  isFilled() {
+    return TeamHolderService.isFilled()
+  }
+
   remove(team: TeamModel) {
     TeamHolderService.removeTeam(team);
   }

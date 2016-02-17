@@ -1,10 +1,18 @@
-<div *ngFor="#team of teams">
-  <span>{{ team.name }}</span>
-  <button (click)="remove(team)">X</button>
+<div class="container">
+  <div *ngFor="#team of teams" class="team">
+    <span class="team_name">{{ team.name }}</span>
+    <button class="team_remove" (click)="remove(team)">X</button>
+  </div>
+
+  <team-form></team-form>
+
+  <div class="button-bar">
+    <span class="message">
+      Currently {{ teams.length }} teams
+      <span class="message_warning" *ngIf="!isFilled()">
+        X
+      </span>
+    </span>
+    <a class="button" [routerLink]="['TreeComponent']">Generate</a>
+  </div>
 </div>
-
-<team-form></team-form>
-
-<hr>
-
-<a [routerLink]="['TreeComponent']">Generate</a>
