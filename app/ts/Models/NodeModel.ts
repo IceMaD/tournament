@@ -77,7 +77,7 @@ export class NodeModel {
 
   findByTeam(team: TeamModel): NodeModel[] {
 
-    let matches = [];
+    let matches: NodeModel[] = [];
 
     if (!this.team || this.children.length === 0) {
       return matches;

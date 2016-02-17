@@ -3,7 +3,20 @@ import {NodeModel} from "../Models/NodeModel";
 
 export class TeamHolderService {
 
-  public static _teamList: TeamModel[];
+  public static _teamList: TeamModel[] = [
+    new TeamModel('Coconuts'),
+    new TeamModel('Ananas'),
+    new TeamModel('Watermelons'),
+    new TeamModel('Kitties'),
+    new TeamModel('Bananas'),
+    new TeamModel('Puppies'),
+    new TeamModel('Birds'),
+    new TeamModel('Monkeys'),
+    new TeamModel('Bananas'),
+    new TeamModel('Puppies'),
+    new TeamModel('Birds'),
+    new TeamModel('Monkeys')
+  ];
   public static tree: NodeModel;
 
   static get() {
@@ -11,16 +24,6 @@ export class TeamHolderService {
   }
 
   static buildTree(): NodeModel {
-    this._teamList = [
-      new TeamModel('Coconuts'),
-      new TeamModel('Ananas'),
-      new TeamModel('Watermelons'),
-      new TeamModel('Kitties'),
-      new TeamModel('Bananas'),
-      new TeamModel('Puppies'),
-      new TeamModel('Birds'),
-      new TeamModel('Monkeys')
-    ];
 
     let turnCount: number = Math.ceil(Math.log(this._teamList.length)/Math.log(2));
     let nodes: { [turn: string]: { [group: string]: NodeModel } } = {t1:{}};
@@ -72,7 +75,10 @@ export class TeamHolderService {
   }
 
   static isFilled(): boolean {
-    return this._teamList.length == 4;
+    let l = this._teamList.length;
+
+    // Is power of 2
+    return l && (l & (l - 1)) === 0;
   }
 
   static removeTeam(team: TeamModel): TeamHolderService {
@@ -92,10 +98,7 @@ export class TeamHolderService {
   static win(node: NodeModel): boolean {
     let wonPlace: NodeModel|boolean = this.tree.traverseToParentOf(node);
 
-    if (wonPlace instanceof NodeModel
-      && !wonPlace.team
-      && wonPlace.allChildrenHaveTeam()
-    ) {
+    if (wonPlace instanceof NodeModel && !wonPlace.team && wonPlace.allChildrenHaveTeam()) {
       wonPlace.setWinTeam(node.team);
 
       return true;

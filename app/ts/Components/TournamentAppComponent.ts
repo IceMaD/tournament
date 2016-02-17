@@ -12,7 +12,6 @@ import {TreeView} from "../Views/TreeView";
   templateUrl: 'app/templates/app.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [TeamHolderService, FlashService],
-  //pipes: [],
 })
 
 @RouteConfig([
