@@ -2,6 +2,7 @@ $color: $text-color;
 $font-family: $font;
 
 %scope-reset {
+  display: block;
   color: $color;
   cursor: default;
   direction: ltr;
@@ -20,7 +21,7 @@ $font-family: $font;
 }
 
 @mixin component($name) {
-  #{$name} {
+  .#{$name} {
     @extend %scope-reset;
 
     @content
@@ -29,7 +30,7 @@ $font-family: $font;
 
 @mixin child($name) {
   @if & {
-    .#{$name} {
+    &_#{$name} {
       @content
     }
   } @else {
@@ -45,4 +46,8 @@ $font-family: $font;
   } @else {
     @error 'Modifiers should always have a parent';
   }
+}
+
+@mixin modified($name) {
+  .\--#{$name} {}
 }

@@ -1,4 +1,4 @@
-export class FlashMessage {
+export class FlashMessageModel {
 
   private ALLOWED_TYPES = ['info', 'warning', 'danger'];
 

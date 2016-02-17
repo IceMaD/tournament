@@ -1,11 +1,11 @@
-import {FlashMessage} from "../Models/FlashMessage";
+import {FlashMessageModel} from "../Models/FlashMessageModel";
 
 export class FlashService {
 
-  private _list: FlashMessage[] = [];
+  private _list: FlashMessageModel[] = [];
 
-  push(message: String, type: String = null): this {
-    this._list.push(new FlashMessage(message, type));
+  push(message: string, type: string = null): this {
+    this._list.push(new FlashMessageModel(message, type));
 
     setTimeout(() => {
       this._list.shift()
@@ -14,7 +14,7 @@ export class FlashService {
     return this;
   }
 
-  get(): FlashMessage[] {
+  get(): FlashMessageModel[] {
     return this._list;
   }
 }
