@@ -75,12 +75,19 @@
 
     +modifier(won)
 
-      background-color: $granny-green
+      background-color: lighten($granny-green, 10%)
+
+      +modifier(highlighted)
+
+        background-color: darken($granny-green, 20%)
 
     +modifier(lost)
 
-      background-color: $blush-pink
+      background-color: lighten($blush-pink, 10%)
 
+      +modifier(highlighted)
+
+        background-color: darken($blush-pink, 20%)
 
 +component(router-outlet)
 

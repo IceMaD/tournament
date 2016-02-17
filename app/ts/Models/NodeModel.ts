@@ -7,6 +7,7 @@ export class NodeModel {
   private _id: number;
   public last: boolean = false;
   public status: string;
+  public highlighted: boolean;
 
   constructor(
     public name: string,
@@ -73,20 +74,5 @@ export class NodeModel {
 
       child.status = child.team.name === team.name ? 'won' : 'lost';
     }
-  }
-
-  findByTeam(team: TeamModel): NodeModel[] {
-
-    let matches: NodeModel[] = [];
-
-    if (!this.team || this.children.length === 0) {
-      return matches;
-    }
-
-    if (this.team.name == team.name) {
-      matches.push(this);
-    }
-
-    return matches;
   }
 }

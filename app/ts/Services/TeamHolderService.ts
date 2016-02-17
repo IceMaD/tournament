@@ -12,12 +12,9 @@ export class TeamHolderService {
     new TeamModel('Puppies'),
     new TeamModel('Birds'),
     new TeamModel('Monkeys'),
-    new TeamModel('Bananas'),
-    new TeamModel('Puppies'),
-    new TeamModel('Birds'),
-    new TeamModel('Monkeys')
   ];
   public static tree: NodeModel;
+  public static _nodes: NodeModel[];
 
   static get() {
     return this._teamList;
@@ -27,16 +24,21 @@ export class TeamHolderService {
 
     let turnCount: number = Math.ceil(Math.log(this._teamList.length)/Math.log(2));
     let nodes: { [turn: string]: { [group: string]: NodeModel } } = {t1:{}};
+    this._nodes = [];
 
     /* Generate First Turn */
     for (let i:number = 0; i < this._teamList.length; i = i+2) {
       let turn = 't'+1;
       let group = 'g'+(i/2+1);
 
-      nodes[turn][group] = new NodeModel(turn + group, [
-        new NodeModel('team ' + i, [], this._teamList[i]),
-        new NodeModel('team ' + (i+1), [], this._teamList[i+1])
-      ]);
+      let nodeTeam1 = new NodeModel('team ' + i, [], this._teamList[i]);
+      let nodeTeam2 = new NodeModel('team ' + (i+1), [], this._teamList[i+1]);
+
+      let node: NodeModel = new NodeModel(turn + group, [nodeTeam1, nodeTeam2]);
+      this._nodes.push(node);
+      this._nodes.push(nodeTeam1);
+      this._nodes.push(nodeTeam2);
+      nodes[turn][group] = node;
     }
 
     /* Generate Other turns */
@@ -54,17 +56,20 @@ export class TeamHolderService {
         let turn = 't'+t;
         let group = 'g'+g;
 
-
-        nodes[turn][group] = new NodeModel(turn + group, [
+        let node: NodeModel = new NodeModel(turn + group, [
           prevTurn['g'+(g*2-1)],
           prevTurn['g'+(g*2)],
-        ])
+        ]);
+
+        this._nodes.push(node);
+        nodes[turn][group] = node;
       }
     }
 
     this.tree = nodes['t' + turnCount]['g1'];
     this.tree.last = true;
 
+    this._nodes.push(this.tree);
     return this.tree;
   }
 
@@ -108,6 +113,18 @@ export class TeamHolderService {
   }
 
   static highlight(team: TeamModel):void {
-    this.tree.findByTeam(team)
+    for (let i:number = 0; i < this._nodes.length; i++) {
+      let node:NodeModel = this._nodes[i];
+
+      if (node.team && node.team.id === team.id) {
+        node.highlighted = true;
+      }
+    }
+  }
+
+  static unHighlight():void {
+    for (let i:number = 0; i < this._nodes.length; i++) {
+      this._nodes[i].highlighted = false;
+    }
   }
 }

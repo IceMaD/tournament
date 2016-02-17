@@ -2,7 +2,8 @@
         [ngClass]="{
           '--last': node.last,
           '--won': node.status == 'won',
-          '--lost': node.status == 'lost'
+          '--lost': node.status == 'lost',
+          '--highlighted': node.highlighted
         }"
         [overlay]="node"
         (click)="node.win()">

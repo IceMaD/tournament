@@ -6,7 +6,8 @@ import {TeamHolderService} from "../Services/TeamHolderService";
 @Directive({
   selector: '[overlay]',
   host: {
-    '(mouseover)': 'show()'
+    '(mouseenter)': 'show()',
+    '(mouseleave)': 'hide()'
   }
 })
 export class OverlayDirective {
@@ -18,5 +19,13 @@ export class OverlayDirective {
     }
 
     TeamHolderService.highlight(this.node.team)
+  }
+
+  hide(): void {
+    if (!this.node.team) {
+      return;
+    }
+
+    TeamHolderService.unHighlight()
   }
 }
