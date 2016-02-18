@@ -28,7 +28,7 @@ export class TreeView {
       return;
     }
 
-    this.teams = TeamHolderService.get();
+    this.teams = TeamHolderService.teams;
     this.tree = TeamHolderService.buildTree();
   }
 }

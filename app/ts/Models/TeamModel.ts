@@ -1,4 +1,5 @@
 import {IdService} from "../Services/IdService";
+
 export class TeamModel {
 
   public name: string;

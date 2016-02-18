@@ -14,7 +14,7 @@ export class TeamManagementView {
   public teams: TeamModel[];
 
   ngOnInit() {
-    this.teams = TeamHolderService.get();
+    this.teams = TeamHolderService.teams;
   }
 
   isFilled() {

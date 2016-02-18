@@ -17,10 +17,6 @@ export class NodeModel {
     this._id = IdService.getUniqueId();
   }
 
-  addChild(child: NodeModel) {
-    this.children.push(child)
-  }
-
   get id():number {
     return this._id;
   }

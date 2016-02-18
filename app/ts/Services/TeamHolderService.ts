@@ -3,7 +3,8 @@ import {NodeModel} from "../Models/NodeModel";
 
 export class TeamHolderService {
 
-  public static _teamList: TeamModel[] = [
+  /* @TODO remove */
+  private static _teamList: TeamModel[] = [
     new TeamModel('Coconuts'),
     new TeamModel('Ananas'),
     new TeamModel('Watermelons'),
@@ -13,13 +14,19 @@ export class TeamHolderService {
     new TeamModel('Birds'),
     new TeamModel('Monkeys'),
   ];
-  public static tree: NodeModel;
-  public static _nodes: NodeModel[];
 
-  static get() {
+  public static tree: NodeModel;
+  private static _nodes: NodeModel[];
+
+  static get teams():TeamModel[] {
     return this._teamList;
   }
 
+  /**
+   * Build a tree
+   *
+   * @returns {NodeModel}
+   */
   static buildTree(): NodeModel {
 
     let turnCount: number = Math.ceil(Math.log(this._teamList.length)/Math.log(2));
