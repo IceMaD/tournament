@@ -3,7 +3,6 @@ import {ROUTER_DIRECTIVES, RouteConfig} from "angular2/router";
 import {TeamHolderService} from "../Services/TeamHolderService";
 import {FlashService} from "../Services/FlashService";
 import {FlashMessageModel} from "../Models/FlashMessageModel";
-import {HomepageView} from "../Views/HomepageView";
 import {TeamManagementView} from "../Views/TeamManagementView";
 import {TreeView} from "../Views/TreeView";
 
@@ -16,10 +15,9 @@ import {TreeView} from "../Views/TreeView";
 
 @RouteConfig([
 
-  {path: '/', name: 'Homepage', component: HomepageView, useAsDefault: true},
-  {path: '/team-management', name: 'TeamManagement', component: TeamManagementView},
+  {path: '/', name: 'TeamManagement', component: TeamManagementView, useAsDefault: true},
   {path: '/tree', name: 'TreeComponent', component: TreeView},
-  {path: '/*path', redirectTo:['Homepage']},
+  {path: '/*path', redirectTo:['TeamManagement']},
 
 ])
 

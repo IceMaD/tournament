@@ -1,5 +1,6 @@
 import {TeamModel} from "../Models/TeamModel";
 import {NodeModel} from "../Models/NodeModel";
+import {TreeManager} from "./TreeManager";
 
 export class TeamHolderService {
 
@@ -15,69 +16,18 @@ export class TeamHolderService {
     new TeamModel('Monkeys'),
   ];
 
-  public static tree: NodeModel;
-  private static _nodes: NodeModel[];
+  private static _tree: NodeModel;
 
   static get teams():TeamModel[] {
     return this._teamList;
   }
 
-  /**
-   * Build a tree
-   *
-   * @returns {NodeModel}
-   */
-  static buildTree(): NodeModel {
-
-    let turnCount: number = Math.ceil(Math.log(this._teamList.length)/Math.log(2));
-    let nodes: { [turn: string]: { [group: string]: NodeModel } } = {t1:{}};
-    this._nodes = [];
-
-    /* Generate First Turn */
-    for (let i:number = 0; i < this._teamList.length; i = i+2) {
-      let turn = 't'+1;
-      let group = 'g'+(i/2+1);
-
-      let nodeTeam1 = new NodeModel('team ' + i, [], this._teamList[i]);
-      let nodeTeam2 = new NodeModel('team ' + (i+1), [], this._teamList[i+1]);
-
-      let node: NodeModel = new NodeModel(turn + group, [nodeTeam1, nodeTeam2]);
-      this._nodes.push(node);
-      this._nodes.push(nodeTeam1);
-      this._nodes.push(nodeTeam2);
-      nodes[turn][group] = node;
+  static get tree():NodeModel {
+    if (!(this._tree instanceof NodeModel)) {
+      this._tree = TreeManager.buildTree(this._teamList);
     }
 
-    /* Generate Other turns */
-    for (let t:number = 2; t < turnCount+1; t++) {
-
-      nodes['t'+t] = {};
-
-      /* Group count for turn t */
-      let groupCount = Math.pow(2, turnCount - t);
-
-      for (let g:number = 1; g <= groupCount; g++) {
-
-        /* Store Previous turn */
-        let prevTurn = nodes['t'+(t-1)];
-        let turn = 't'+t;
-        let group = 'g'+g;
-
-        let node: NodeModel = new NodeModel(turn + group, [
-          prevTurn['g'+(g*2-1)],
-          prevTurn['g'+(g*2)],
-        ]);
-
-        this._nodes.push(node);
-        nodes[turn][group] = node;
-      }
-    }
-
-    this.tree = nodes['t' + turnCount]['g1'];
-    this.tree.last = true;
-
-    this._nodes.push(this.tree);
-    return this.tree;
+    return this._tree;
   }
 
   static addTeam(name: string): TeamHolderService {
@@ -108,7 +58,7 @@ export class TeamHolderService {
   }
 
   static win(node: NodeModel): boolean {
-    let wonPlace: NodeModel|boolean = this.tree.traverseToParentOf(node);
+    let wonPlace: NodeModel|boolean = TreeManager.findParentOf(node);
 
     if (wonPlace instanceof NodeModel && !wonPlace.team && wonPlace.allChildrenHaveTeam()) {
       wonPlace.setWinTeam(node.team);
@@ -120,18 +70,16 @@ export class TeamHolderService {
   }
 
   static highlight(team: TeamModel):void {
-    for (let i:number = 0; i < this._nodes.length; i++) {
-      let node:NodeModel = this._nodes[i];
-
+    TreeManager.forEachNode(function(node: NodeModel) {
       if (node.team && node.team.id === team.id) {
         node.highlighted = true;
       }
-    }
+    })
   }
 
   static unHighlight():void {
-    for (let i:number = 0; i < this._nodes.length; i++) {
-      this._nodes[i].highlighted = false;
-    }
+    TreeManager.forEachNode(function(node: NodeModel) {
+      node.highlighted = false;
+    })
   }
 }

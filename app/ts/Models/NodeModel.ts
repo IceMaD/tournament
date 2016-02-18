@@ -8,12 +8,11 @@ export class NodeModel {
   public last: boolean = false;
   public status: string;
   public highlighted: boolean;
+  public name: string;
+  public children: NodeModel[]= [];
+  public team: TeamModel;
 
-  constructor(
-    public name: string,
-    public children?: NodeModel[],
-    public team?: TeamModel
-  ) {
+  constructor() {
     this._id = IdService.getUniqueId();
   }
 
@@ -29,23 +28,16 @@ export class NodeModel {
     TeamHolderService.win(this);
   }
 
-  traverseToParentOf(node: NodeModel): NodeModel|boolean {
+  setTeam(team: TeamModel): this {
+    this.team = team;
 
-    for (let i = 0; i < this.children.length; i++) {
-      let child:NodeModel = this.children[i];
+    return this;
+  }
 
-      if (child.id === node.id) {
-        return this;
-      }
+  addChild(node: NodeModel): this {
+    this.children.push(node);
 
-      let matchInChild = child.traverseToParentOf(node);
-
-      if (matchInChild) {
-        return matchInChild;
-      }
-    }
-
-    return false;
+    return this;
   }
 
   allChildrenHaveTeam():boolean {

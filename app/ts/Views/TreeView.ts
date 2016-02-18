@@ -23,12 +23,12 @@ export class TreeView {
   ngOnInit() {
     if (!TeamHolderService.isFilled()) {
       this._flashService.push('Vous devez renseigner 2, 4, 8, 16 ou 32 équipes');
-      this._router.navigate(['TeamManagement'])
+      this._router.navigate(['TeamManagement']);
 
       return;
     }
 
     this.teams = TeamHolderService.teams;
-    this.tree = TeamHolderService.buildTree();
+    this.tree = TeamHolderService.tree;
   }
 }
