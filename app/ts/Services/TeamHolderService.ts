@@ -23,7 +23,7 @@ export class TeamHolderService {
   }
 
   static get tree():NodeModel {
-    if (!(this._tree instanceof NodeModel)) {
+    if (!this.hasTree()) {
       this._tree = TreeManager.buildTree(this._teamList);
     }
 
@@ -31,19 +31,19 @@ export class TeamHolderService {
   }
 
   static addTeam(name: string): TeamHolderService {
+    if (!this.hasConfirmed()) {
+      return;
+    }
+
     this._teamList.push(new TeamModel(name));
 
     return TeamHolderService;
   }
 
-  static isFilled(): boolean {
-    let l = this._teamList.length;
-
-    // Is power of 2
-    return l && (l & (l - 1)) === 0;
-  }
-
   static removeTeam(team: TeamModel): TeamHolderService {
+    if (!this.hasConfirmed()) {
+      return;
+    }
 
     for (let i:number = 0; i < this._teamList.length; i++) {
 
@@ -81,5 +81,24 @@ export class TeamHolderService {
     TreeManager.forEachNode(function(node: NodeModel) {
       node.highlighted = false;
     })
+  }
+
+  static isFilled(): boolean {
+    let l = this._teamList.length;
+
+    // Is power of 2
+    return l && (l & (l - 1)) === 0;
+  }
+
+  private static hasTree(): boolean {
+    return this._tree instanceof NodeModel;
+  }
+
+  private static hasConfirmed(): boolean {
+    if (this.hasTree() && confirm('Cette action aura pour effet de supprimer l\'arbre existant')) {
+      this._tree = null;
+    }
+
+    return true
   }
 }
