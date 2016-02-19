@@ -1,0 +1,16 @@
++component(message)
+
+  display: flex
+  align-items: center
+
+  +child(status)
+
+    margin-right: .5em
+
+    +modifier(error)
+
+      color: $blush-pink
+
+    +modifier(success)
+
+      color: $granny-green

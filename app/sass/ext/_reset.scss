@@ -56,3 +56,7 @@ table {
 * {
   box-sizing: border-box;
 }
+
+router-outlet {
+  display: none;
+}

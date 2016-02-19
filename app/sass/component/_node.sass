@@ -1,0 +1,90 @@
++component(node)
+
+  display: flex
+  flex-direction: row-reverse
+  align-items: center
+  justify-content: center
+  cursor: pointer
+
+  +child(children)
+
+    display: flex
+    flex-direction: column
+    position: relative
+
+    &:after, &:before
+
+      content: ''
+      position: absolute
+      background-color: black
+
+    &:after
+
+      right: -.5em
+      top: 50%
+      height: 1px
+      width: .5em
+
+    &:before
+
+      right: 0
+      top: 25%
+      height: 50%
+      width: 1px
+
+
+  +child(title)
+
+    position: relative
+    background-color: $snow-white
+    border: 1px solid $dusty-grey
+    font-size: 1em
+    padding: .5em
+    margin: .5em
+    min-width: 200px
+    max-height: 2em
+    border-radius: 3px
+    color: $text-color
+    outline: none
+    cursor: pointer
+
+    &:before
+
+      content: ''
+      position: absolute
+      background-color: black
+
+      left: 100%
+      top: 50%
+      height: 1px
+      width: .5em
+
+    +modifier(last)
+
+      &:before
+
+        content: none
+
+    +modifier(winner)
+
+      background-color: lighten($gold-yellow, 10%)
+
+      +modifier(highlighted)
+
+        background-color: darken($gold-yellow, 20%)
+
+    +modifier(won)
+
+      background-color: lighten($granny-green, 10%)
+
+      +modifier(highlighted)
+
+        background-color: darken($granny-green, 20%)
+
+    +modifier(lost)
+
+      background-color: lighten($blush-pink, 10%)
+
+      +modifier(highlighted)
+
+        background-color: darken($blush-pink, 20%)
