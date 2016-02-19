@@ -76,8 +76,12 @@
 
     +modifier(winner)
 
-      background-color: gold
-      
+      background-color: lighten($gold-yellow, 10%)
+
+      +modifier(highlighted)
+
+        background-color: darken($gold-yellow, 20%)
+
     +modifier(won)
 
       background-color: lighten($granny-green, 10%)
