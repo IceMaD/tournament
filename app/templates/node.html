@@ -3,7 +3,8 @@
           '--last': node.last,
           '--won': node.status == 'won',
           '--lost': node.status == 'lost',
-          '--highlighted': node.highlighted
+          '--highlighted': node.highlighted,
+          '--winner': node.last && node.team
         }"
         [overlay]="node"
         (click)="node.win()">

@@ -95,10 +95,14 @@ export class TeamHolderService {
   }
 
   private static hasConfirmed(): boolean {
-    if (this.hasTree() && confirm('Cette action aura pour effet de supprimer l\'arbre existant')) {
-      this._tree = null;
+    if (!this.hasTree()) {
+      return true;
     }
 
-    return true
+    if (!confirm('Cette action aura pour effet de supprimer l\'arbre existant')) {
+      return false;
+    }
+    this._tree = null;
+    return true;
   }
 }

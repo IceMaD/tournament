@@ -1,6 +1,7 @@
 @import 'ext/reset'
 @import 'ext/variables'
 @import 'ext/mixins'
+@import 'ext/fonts'
 
 +component(tree)
 
@@ -73,6 +74,10 @@
 
         content: none
 
+    +modifier(winner)
+
+      background-color: gold
+      
     +modifier(won)
 
       background-color: lighten($granny-green, 10%)
@@ -88,6 +93,7 @@
       +modifier(highlighted)
 
         background-color: darken($blush-pink, 20%)
+
 
 +component(router-outlet)
 
@@ -177,6 +183,17 @@
 
 +component(message)
 
-  +child(warning)
+  display: flex
+  align-items: center
 
-    color: $blush-pink
+  +child(status)
+
+    margin-right: .5em
+
+    +modifier(error)
+
+      color: $blush-pink
+
+    +modifier(success)
+
+      color: $granny-green

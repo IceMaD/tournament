@@ -31,10 +31,12 @@ export class TreeManager {
 
     this._nodes = this._nodes.concat(nodes);
 
+    nodes[0].last = true;
+
     return nodes[0];
   }
 
-  static findParentOf(nodeTofind: NodeModel): NodeModel|boolean {
+  static findParentOf(nodeToFind: NodeModel): NodeModel|boolean {
 
     // For each node
     for (let i:number = 0; i < this._nodes.length; i++) {
@@ -45,7 +47,7 @@ export class TreeManager {
         let child:NodeModel = node.children[j];
 
         // If the child match, return the parent
-        if (child.id === nodeTofind.id) {
+        if (child.id === nodeToFind.id) {
           return node;
         }
       }
