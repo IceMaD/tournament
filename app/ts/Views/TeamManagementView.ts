@@ -3,11 +3,12 @@ import {RouterLink} from "angular2/router";
 import {TeamFormComponent} from "../Components/TeamFormComponent";
 import {TeamModel} from "../Models/TeamModel";
 import {TeamHolderService} from "../Services/TeamHolderService";
+import {TeamComponent} from "../Components/TeamComponent";
 
 @Component({
   selector: 'team-management-view',
   templateUrl: 'app/templates/team-management.html',
-  directives: [RouterLink, TeamFormComponent]
+  directives: [RouterLink, TeamFormComponent, TeamComponent]
 })
 
 export class TeamManagementView {
@@ -18,10 +19,10 @@ export class TeamManagementView {
   }
 
   isFilled() {
-    return TeamHolderService.isFilled()
+    TeamHolderService.isFilled()
   }
 
-  remove(team: TeamModel) {
-    TeamHolderService.removeTeam(team);
+  clear() {
+    TeamHolderService.clear()
   }
 }

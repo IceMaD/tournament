@@ -14,7 +14,7 @@ export class TooltipDirective {
 
   @Input('tooltip') text: string;
 
-  private _tooltip: HTMLElement;
+  private _tooltip: any; // Fuck firstChild returns Node in doc and HTMLElement in real
 
   constructor(
     private _element: ElementRef
@@ -38,7 +38,7 @@ export class TooltipDirective {
     this._element.nativeElement.removeChild(this._tooltip);
   }
 
-  private getTooltipDom(): HTMLElement {
+  private getTooltipDom(): any {
     let string: string = '<div class="tooltip">' + this.text + '</div>';
     let div: HTMLElement = document.createElement('div');
 

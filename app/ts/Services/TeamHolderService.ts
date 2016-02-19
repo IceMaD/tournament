@@ -105,4 +105,10 @@ export class TeamHolderService {
     this._tree = null;
     return true;
   }
+
+  static clear():void {
+    TreeManager.clear();
+    this._tree = null;
+    this._teamList.length = 0;
+  }
 }

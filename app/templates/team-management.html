@@ -1,8 +1,5 @@
 <div class="container">
-  <div *ngFor="#team of teams" class="team">
-    <span class="team_name">{{ team.name }}</span>
-    <button class="team_remove" (click)="remove(team)">X</button>
-  </div>
+  <team [team]="team" *ngFor="#team of teams"></team>
 
   <team-form></team-form>
 
@@ -13,7 +10,10 @@
            [class.--error]="!isFilled()">{{ isFilled() ? 'check' : 'close' }}</i>
       Currently {{ teams.length }} teams
     </span>
-    <a class="button" [routerLink]="['TreeComponent']">Generate</a>
+    <span>
+      <a class="button" [routerLink]="['TreeComponent']">Generate</a>
+      <a class="button" (click)="clear()">Clear</a>
+    </span>
   </div>
 </div>
 

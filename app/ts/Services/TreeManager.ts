@@ -63,4 +63,8 @@ export class TreeManager {
       callback(node);
     }
   }
+
+  static clear():void {
+    this._nodes.length = 0;
+  }
 }
