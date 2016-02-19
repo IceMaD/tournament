@@ -15,7 +15,7 @@ var staticFiles = [
 ];
 
 gulp.task('sass', function () {
-  gulp.src(appFolder + 'sass/style.sass')
+  gulp.src(appFolder + 'sass/style.scss')
       .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest(distFolder + 'css'))
       .pipe(connect.reload());
