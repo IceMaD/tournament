@@ -4,6 +4,7 @@ import {TeamModel} from "../Models/TeamModel";
 import {FlashService} from "../Services/FlashService";
 import {TeamHolderService} from "../Services/TeamHolderService";
 import {NodeComponent} from "../Components/NodeComponent";
+import {TreeManager} from "../Services/TreeManager";
 
 @Component({
   selector: 'tree-view',
@@ -20,12 +21,14 @@ export class TreeView {
 
   ngOnInit() {
     if (!TeamHolderService.isFilled()) {
-      FlashService.push('Vous devez renseigner 2, 4, 8, 16 ou 32 équipes');
+      FlashService.push('You must register 2, 4, 8, 16 or 32 teams');
       this._router.navigate(['TeamManagement']);
 
       return;
     }
 
-    this.tree = TeamHolderService.tree;
+    this.tree = TreeManager.tree;
+
+    console.log(TreeManager.tree);
   }
 }

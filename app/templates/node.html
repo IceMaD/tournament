@@ -6,7 +6,6 @@
           '--highlighted': node.highlighted,
           '--winner': node.last && node.team
         }"
-        tooltip="Hello"
         [overlay]="node"
         (click)="node.win()">
   {{ node.team ? node.team.name : '-' }}</button>

@@ -1,41 +1,22 @@
 import {NodeModel} from "../Models/NodeModel";
 import {TeamModel} from "../Models/TeamModel";
+import {TeamHolderService} from "./TeamHolderService";
 
 export class TreeManager {
 
   private static _nodes: NodeModel[] = [];
+  private static _tree: NodeModel;
 
-  static buildTree(teamList: TeamModel[]): NodeModel {
-
-    let countOf = {
-      teams: teamList.length,
-      nodes: (teamList.length * 2) - 1,
-    };
-
-    let nodes: NodeModel[] = [];
-
-    for (let i:number = 0; i < countOf.nodes; i++) {
-      let node = new NodeModel();
-      nodes.push(node);
-
-      if (nodes.length > 1) {
-        let positionOfParent: number = Math.floor(nodes.length/2) - 1;
-        let parent: NodeModel = nodes[positionOfParent];
-        parent.addChild(node);
-      }
-
-      if (countOf.nodes - i <= countOf.teams) {
-        node.setTeam(teamList[i+1 - countOf.teams]);
-      }
+  static get tree():NodeModel {
+    if (!this.hasTree()) {
+      this.buildTree();
     }
 
-    nodes[0].last = true;
+    return this._tree;
+  }
 
-    this._nodes = this._nodes.concat(nodes);
-
-    console.log(nodes);
-
-    return nodes[0];
+  static hasTree(): boolean {
+    return (this._tree instanceof NodeModel);
   }
 
   static findParentOf(nodeToFind: NodeModel): NodeModel|boolean {
@@ -66,7 +47,40 @@ export class TreeManager {
     }
   }
 
-  static clear():void {
+  static clear(): void {
     this._nodes.length = 0;
+    this._tree = null;
+  }
+
+  private static buildTree(): void {
+
+    let teams: TeamModel[] = TeamHolderService.teams;
+
+    let countOf = {
+      teams: teams.length,
+      nodes: (teams.length * 2) - 1,
+    };
+
+    let nodes: NodeModel[] = [];
+
+    for (let i:number = 0; i < countOf.nodes; i++) {
+      let node = new NodeModel();
+      nodes.push(node);
+
+      if (nodes.length > 1) {
+        let positionOfParent: number = Math.floor(nodes.length/2) - 1;
+        let parent: NodeModel = nodes[positionOfParent];
+        parent.addChild(node);
+      }
+
+      if (countOf.nodes - i <= countOf.teams) {
+        node.setTeam(teams[i+1 - countOf.teams]);
+      }
+    }
+
+    nodes[0].last = true;
+
+    this._nodes = this._nodes.concat(nodes);
+    this._tree = nodes[0];
   }
 }

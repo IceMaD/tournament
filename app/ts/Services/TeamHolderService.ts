@@ -16,18 +16,8 @@ export class TeamHolderService {
     new TeamModel('Monkeys'),
   ];
 
-  private static _tree: NodeModel;
-
   static get teams():TeamModel[] {
     return this._teamList;
-  }
-
-  static get tree():NodeModel {
-    if (!this.hasTree()) {
-      this._tree = TreeManager.buildTree(this._teamList);
-    }
-
-    return this._tree;
   }
 
   static addTeam(name: string): TeamHolderService {
@@ -55,6 +45,12 @@ export class TeamHolderService {
     }
 
     return TeamHolderService;
+  }
+
+  static clear():void {
+    TreeManager.clear();
+    // @TODO Clear tree
+    this._teamList.length = 0;
   }
 
   static win(node: NodeModel): boolean {
@@ -90,25 +86,17 @@ export class TeamHolderService {
     return l && (l & (l - 1)) === 0;
   }
 
-  private static hasTree(): boolean {
-    return this._tree instanceof NodeModel;
-  }
-
   private static hasConfirmed(): boolean {
-    if (!this.hasTree()) {
+    if (!TreeManager.hasTree()) {
       return true;
     }
 
     if (!confirm('Cette action aura pour effet de supprimer l\'arbre existant')) {
       return false;
     }
-    this._tree = null;
-    return true;
-  }
 
-  static clear():void {
     TreeManager.clear();
-    this._tree = null;
-    this._teamList.length = 0;
+
+    return true;
   }
 }

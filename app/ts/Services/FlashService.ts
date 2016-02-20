@@ -4,7 +4,7 @@ export class FlashService {
 
   private static _list: FlashMessageModel[] = [];
 
-  public static push(message: string, type: string = null): this {
+  public static push(message: string, type: string = null): FlashService {
     this._list.push(new FlashMessageModel(message, type));
 
     setTimeout(() => {

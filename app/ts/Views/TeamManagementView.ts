@@ -4,11 +4,12 @@ import {TeamFormComponent} from "../Components/TeamFormComponent";
 import {TeamModel} from "../Models/TeamModel";
 import {TeamHolderService} from "../Services/TeamHolderService";
 import {TeamComponent} from "../Components/TeamComponent";
+import {TooltipDirective} from "../Directives/TooltipDirective";
 
 @Component({
   selector: 'team-management-view',
   templateUrl: 'app/templates/team-management.html',
-  directives: [RouterLink, TeamFormComponent, TeamComponent]
+  directives: [RouterLink, TeamFormComponent, TeamComponent, TooltipDirective]
 })
 
 export class TeamManagementView {

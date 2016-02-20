@@ -4,7 +4,8 @@
   <team-form></team-form>
 
   <div class="button-bar">
-    <span class="message">
+    <span class="message"
+          tooltip="You must register 2, 4, 8, 16 or 32 teams">
         <i class="message_status material-icons"
            [class.--success]="isFilled()"
            [class.--error]="!isFilled()">{{ isFilled() ? 'check' : 'close' }}</i>
