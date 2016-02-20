@@ -9,8 +9,13 @@ import {TeamHolderService} from "../Services/TeamHolderService";
 })
 export class TeamComponent {
   @Input() team: TeamModel;
+  public edition: boolean = false;
 
-  remove(team: TeamModel) {
-    TeamHolderService.removeTeam(team);
+  public remove() {
+    TeamHolderService.removeTeam(this.team);
+  }
+
+  public edit() {
+    this.edition = true;
   }
 }

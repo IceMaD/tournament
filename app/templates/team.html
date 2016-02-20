@@ -1,4 +1,4 @@
 <div class="team">
-  <span class="team_name">{{ team.name }}</span>
-  <button class="team_remove" (click)="remove(team)">X</button>
+  <input class="team_editor" type="text" title="Team name" [(ngModel)]="team.name">
+  <button class="team_remove" (click)="remove()">X</button>
 </div>

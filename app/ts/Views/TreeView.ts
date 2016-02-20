@@ -28,7 +28,5 @@ export class TreeView {
     }
 
     this.tree = TreeManager.tree;
-
-    console.log(TreeManager.tree);
   }
 }

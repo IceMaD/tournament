@@ -11,9 +11,15 @@
   justify-content: space-between;
   align-items: center;
 
-  @include child(name) {
+  @include child(editor) {
 
-    // @TODO Remove ?
+    border: none;
+    font-size: inherit;
+    outline: none;
+    line-height: 1.5;
+    display: block;
+    flex-grow: 1;
+    margin-right: 1em;
   }
 
   @include child(remove) {
