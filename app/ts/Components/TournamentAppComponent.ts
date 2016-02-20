@@ -8,7 +8,7 @@ import {TreeView} from "../Views/TreeView";
 
 @Component({
   selector: 'tournament-app',
-  templateUrl: 'app/templates/app.html',
+  templateUrl: 'dist/templates/app.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [TeamHolderService, FlashService],
 })

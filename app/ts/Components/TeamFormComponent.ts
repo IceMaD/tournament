@@ -3,7 +3,7 @@ import {TeamHolderService} from "../Services/TeamHolderService";
 
 @Component({
   selector: 'team-form',
-  templateUrl: 'app/templates/team-form.html'
+  templateUrl: 'dist/templates/team-form.html'
 })
 
 export class TeamFormComponent {

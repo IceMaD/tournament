@@ -8,7 +8,7 @@ import {TreeManager} from "../Services/TreeManager";
 
 @Component({
   selector: 'tree-view',
-  templateUrl: 'app/templates/tree.html',
+  templateUrl: 'dist/templates/tree.html',
   directives: [RouterLink, NodeComponent]
 })
 

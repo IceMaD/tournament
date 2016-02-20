@@ -8,7 +8,7 @@ import {TooltipDirective} from "../Directives/TooltipDirective";
 
 @Component({
   selector: 'team-management-view',
-  templateUrl: 'app/templates/team-management.html',
+  templateUrl: 'dist/templates/team-management.html',
   directives: [RouterLink, TeamFormComponent, TeamComponent, TooltipDirective]
 })
 

@@ -5,7 +5,7 @@ import {OverlayDirective} from "../Directives/OverlayDirective";
 
 @Component({
   selector: 'node',
-  templateUrl: 'app/templates/node.html',
+  templateUrl: 'dist/templates/node.html',
   directives: [NodeComponent, OverlayDirective]
 })
 

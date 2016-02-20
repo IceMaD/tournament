@@ -5,7 +5,7 @@ import {TeamHolderService} from "../Services/TeamHolderService";
 
 @Component({
   selector: 'team',
-  templateUrl: 'app/templates/team.html'
+  templateUrl: 'dist/templates/team.html'
 })
 export class TeamComponent {
   @Input() team: TeamModel;
