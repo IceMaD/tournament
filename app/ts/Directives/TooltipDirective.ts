@@ -1,7 +1,6 @@
 import {Directive} from "angular2/core";
 import {Input} from "angular2/core";
 import {ElementRef} from "angular2/core";
-import {el} from "angular2/testing_internal";
 import {DynamicComponentLoader} from "angular2/core";
 import {TooltipComponent} from "../Components/TooltipComponent";
 import {ComponentRef} from "angular2/core";
@@ -17,6 +16,7 @@ import {Injector} from "angular2/core";
 export class TooltipDirective {
 
   @Input('tooltip') text: string;
+  @Input('tooltip-condition') condition: boolean = true;
 
   private _tooltip: Promise<ComponentRef>;
 
@@ -26,6 +26,9 @@ export class TooltipDirective {
   ) {}
 
   show(): void {
+    if (!this.condition) {
+      return;
+    }
 
     this._tooltip = this._loader
       .loadNextToLocation(TooltipComponent, this._element)
@@ -39,6 +42,10 @@ export class TooltipDirective {
   }
 
   hide(): void {
+    if (!(this._tooltip instanceof Promise)) {
+      return;
+    }
+
     this._tooltip.then((componentRef: ComponentRef) => {
       componentRef.dispose();
 
