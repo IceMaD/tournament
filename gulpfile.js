@@ -23,10 +23,15 @@ gulp.task('sass', function () {
 
 gulp.task('ts', function() {
   var tsResult = gulp.src(appFolder + '**/*.ts')
-    .pipe(ts(tsProject));
+      .pipe(ts(tsProject));
 
   return tsResult.js.pipe(gulp.dest(distFolder))
-    .pipe(connect.reload());
+      .pipe(connect.reload());
+});
+
+gulp.task('material-icons', function() {
+  gulp.src('node_modules/material-design-icons/iconfont/*')
+      .pipe(gulp.dest(distFolder + 'fonts/'));
 });
 
 gulp.task('static', function() {
@@ -48,6 +53,6 @@ gulp.task('watch', function () {
   gulp.watch([appFolder + 'sass/**/*.*'], ['sass']);
 });
 
-gulp.task('build', ['ts', 'sass', 'static']);
+gulp.task('build', ['ts', 'sass', 'static', 'material-icons']);
 
 gulp.task('default', ['build', 'connect', 'watch']);
