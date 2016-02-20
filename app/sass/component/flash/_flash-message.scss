@@ -1,3 +1,8 @@
+$text-color: $snow-white;
+$info-background-color: $perano-blue;
+$danger-background-color: $blush-pink;
+$warning-background-color: $gold-yellow;
+
 @include component(flash-message) {
 
   display: block;
@@ -5,19 +10,19 @@
 
   @include modifier(info) {
 
-    background-color: cornflowerblue;
-    color: white;
+    background-color: $info-background-color;
+    color: $text-color;
   }
 
   @include modifier(warning) {
 
-    background-color: orange;
-    color: white;
+    background-color: $warning-background-color;
+    color: $text-color;
   }
 
   @include modifier(danger) {
 
-    background-color: darkred;
-    color: white;
+    background-color: $danger-background-color;
+    color: $text-color;
   }
 }

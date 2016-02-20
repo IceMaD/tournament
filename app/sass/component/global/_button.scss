@@ -1,9 +1,12 @@
+$default-background-color: $perano-blue;
+$default-text-color: $snow-white;
+
 @include component(button) {
 
   padding: 0.5em 1.5em;
   text-decoration: none;
-  background-color: $blush-pink;
-  color: white;
+  background-color: $default-background-color;
+  color: $default-text-color;
   cursor: pointer;
   border-radius: 3px;
   display: inline-block;

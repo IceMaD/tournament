@@ -1,8 +1,11 @@
+$background-color: $perano-blue;
+$text-color: $snow-white;
+
 @include component(tooltip) {
 
   position: fixed;
-  background-color: $granny-green;
-  color: $snow-white;
+  background-color: $background-color;
+  color: $text-color;
   padding: 0.5em 1.5em;
   border-radius: 3px;
   transform: translateX(-50%);
@@ -18,6 +21,6 @@
     height: 0;
     border-style: solid;
     border-width: 10px 10px 0 10px;
-    border-color: $granny-green transparent transparent transparent;
+    border-color: $background-color transparent transparent transparent;
   }
 }

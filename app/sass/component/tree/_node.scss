@@ -1,3 +1,23 @@
+$title-background-color: $snow-white;
+$title-border-color: $alto-grey;
+$title-text-color: $text-color;
+
+$winner-background-color: $gold-yellow;
+$won-background-color: $granny-green;
+$lost-background-color: $blush-pink;
+
+@mixin node-title-variant($color) {
+  @include modifier(winner) {
+
+    background-color: lighten($color, 10%);
+
+    @include modifier(highlighted) {
+
+      background-color: darken($color, 20%);
+    }
+  }
+}
+
 @include component(node) {
 
   display: flex;
@@ -39,15 +59,15 @@
   @include child(title) {
 
     position: relative;
-    background-color: $snow-white;
-    border: 1px solid $dusty-grey;
+    background-color: $title-background-color;
+    border: 1px solid $title-border-color;
     font-size: 1em;
     padding: 0.5em;
     margin: 0.5em;
     min-width: 200px;
     max-height: 2em;
     border-radius: 3px;
-    color: $text-color;
+    color: $title-text-color;
     outline: none;
     cursor: pointer;
 
@@ -70,34 +90,8 @@
       }
     }
 
-    @include modifier(winner) {
-
-      background-color: lighten($gold-yellow, 10%);
-
-      @include modifier(highlighted) {
-
-        background-color: darken($gold-yellow, 20%);
-      }
-    }
-
-    @include modifier(won) {
-
-      background-color: lighten($granny-green, 10%);
-
-      @include modifier(highlighted) {
-
-        background-color: darken($granny-green, 20%);
-      }
-    }
-
-    @include modifier(lost) {
-
-      background-color: lighten($blush-pink, 10%);
-
-      @include modifier(highlighted) {
-
-        background-color: darken($blush-pink, 20%);
-      }
-    }
+    @include node-title-variant($winner-background-color);
+    @include node-title-variant($won-background-color);
+    @include node-title-variant($lost-background-color);
   }
 }

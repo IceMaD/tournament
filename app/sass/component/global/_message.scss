@@ -1,3 +1,6 @@
+$error-text-color: $blush-pink;
+$success-text-color: $granny-green;
+
 @include component(message) {
 
   display: flex;
@@ -9,12 +12,12 @@
 
     @include modifier(error) {
 
-      color: $blush-pink;
+      color: $error-text-color;
     }
 
     @include modifier(success) {
 
-      color: $granny-green;
+      color: $success-text-color;
     }
   }
 }
