@@ -1,6 +1,6 @@
-# Angular2 Quickstart
+# Angular2 Tournament tree
 
-Simple boilerplate for Angular2, based on the quickstart tutorial of [angular.io](https://angular.io/docs/ts/latest/quickstart.html)
+[See here](http://icemad.github.io/tournament/)
 
 ## Instructions
 
