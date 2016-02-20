@@ -2,6 +2,10 @@ import {Directive} from "angular2/core";
 import {Input} from "angular2/core";
 import {ElementRef} from "angular2/core";
 import {el} from "angular2/testing_internal";
+import {DynamicComponentLoader} from "angular2/core";
+import {TooltipComponent} from "../Components/TooltipComponent";
+import {ComponentRef} from "angular2/core";
+import {Injector} from "angular2/core";
 
 @Directive({
   selector: '[tooltip]',
@@ -14,36 +18,31 @@ export class TooltipDirective {
 
   @Input('tooltip') text: string;
 
-  private _tooltip: any; // Fuck firstChild returns Node in doc and HTMLElement in real
+  private _tooltip: Promise<ComponentRef>;
 
   constructor(
-    private _element: ElementRef
+    private _element: ElementRef,
+    private _loader: DynamicComponentLoader
   ) {}
 
   show(): void {
-    var el = this._element.nativeElement;
-    let position = el.getBoundingClientRect();
-    let top = position.top - position.height - 10;
-    let left = position.right - (position.width/2);
 
-    this._tooltip = this.getTooltipDom();
+    this._tooltip = this._loader
+      .loadNextToLocation(TooltipComponent, this._element)
+      .then((componentRef: ComponentRef) => {
+        componentRef.instance
+          .setText(this.text)
+          .positionAccordingTo(this._element.nativeElement);
 
-    el.appendChild(this._tooltip);
-
-    this._tooltip.style.left = left + 'px';
-    this._tooltip.style.top = top + 'px';
+        return componentRef;
+      });
   }
 
   hide(): void {
-    this._element.nativeElement.removeChild(this._tooltip);
-  }
+    this._tooltip.then((componentRef: ComponentRef) => {
+      componentRef.dispose();
 
-  private getTooltipDom(): any {
-    let string: string = '<div class="tooltip">' + this.text + '</div>';
-    let div: HTMLElement = document.createElement('div');
-
-    div.innerHTML = string;
-
-    return div.firstChild;
+      return componentRef;
+    });
   }
 }
