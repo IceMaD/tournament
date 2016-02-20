@@ -1,7 +1,7 @@
-$error-text-color: $blush-pink;
-$success-text-color: $granny-green;
-
 @include component(message) {
+
+  $error-text-color: $blush-pink;
+  $success-text-color: $granny-green;
 
   display: flex;
   align-items: center;

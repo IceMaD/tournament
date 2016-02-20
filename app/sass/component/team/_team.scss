@@ -1,9 +1,9 @@
-$border-color: $alto-grey;
-
-$remove-background-color: $blush-pink;
-$remove-text-color: $snow-white;
-
 @include component(team) {
+
+  $border-color: $alto-grey;
+
+  $remove-background-color: $blush-pink;
+  $remove-text-color: $snow-white;
 
   padding: 0.5em 0;
   box-shadow: shadow-border("bottom", $border-color);

@@ -1,10 +1,10 @@
-$disabled-background-color: $alto-grey;
-$disabled-border-color: darken($disabled-background-color, 15%);
-$submit-text-color: $snow-white;
-$submit-background-color: $granny-green;
-$submit-border-color: darken($submit-background-color, 15%);
-
 @include component(team-form) {
+
+  $disabled-background-color: $alto-grey;
+  $disabled-border-color: darken($disabled-background-color, 15%);
+  $submit-text-color: $snow-white;
+  $submit-background-color: $granny-green;
+  $submit-border-color: darken($submit-background-color, 15%);
 
   margin: 1em 0;
   display: flex;

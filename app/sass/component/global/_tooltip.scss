@@ -1,7 +1,7 @@
-$background-color: $perano-blue;
-$text-color: $snow-white;
-
 @include component(tooltip) {
+
+  $background-color: $perano-blue;
+  $text-color: $snow-white;
 
   position: fixed;
   background-color: $background-color;

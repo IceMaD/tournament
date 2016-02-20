@@ -29,9 +29,11 @@ export class TreeManager {
       }
     }
 
+    nodes[0].last = true;
+
     this._nodes = this._nodes.concat(nodes);
 
-    nodes[0].last = true;
+    console.log(nodes);
 
     return nodes[0];
   }

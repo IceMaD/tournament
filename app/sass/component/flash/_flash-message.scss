@@ -1,9 +1,9 @@
-$text-color: $snow-white;
-$info-background-color: $perano-blue;
-$danger-background-color: $blush-pink;
-$warning-background-color: $gold-yellow;
-
 @include component(flash-message) {
+
+  $text-color: $snow-white;
+  $info-background-color: $perano-blue;
+  $danger-background-color: $blush-pink;
+  $warning-background-color: $gold-yellow;
 
   display: block;
   padding: 1em;

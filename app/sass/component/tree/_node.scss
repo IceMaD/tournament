@@ -1,12 +1,5 @@
-$title-background-color: $snow-white;
-$title-border-color: $alto-grey;
-$title-text-color: $text-color;
-
-$winner-background-color: $gold-yellow;
-$won-background-color: $granny-green;
-$lost-background-color: $blush-pink;
-
 @mixin node-title-variant($color) {
+
   @include modifier(winner) {
 
     background-color: lighten($color, 10%);
@@ -19,6 +12,14 @@ $lost-background-color: $blush-pink;
 }
 
 @include component(node) {
+
+  $title-background-color: $snow-white;
+  $title-border-color: $alto-grey;
+  $title-text-color: $text-color;
+
+  $winner-background-color: $gold-yellow;
+  $won-background-color: $granny-green;
+  $lost-background-color: $blush-pink;
 
   display: flex;
   flex-direction: row-reverse;

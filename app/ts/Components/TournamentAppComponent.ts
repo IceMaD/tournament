@@ -25,11 +25,7 @@ export class TournamentAppComponent {
 
   private flashMessages: FlashMessageModel[];
 
-  constructor(
-    private _flashService: FlashService
-  ) {}
-
   ngOnInit() {
-    this.flashMessages = this._flashService.get();
+    this.flashMessages = FlashService.list;
   }
 }
