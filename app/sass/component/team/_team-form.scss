@@ -1,0 +1,18 @@
+@include component(team-form) {
+
+  margin: 1em 0;
+  display: flex;
+
+  @include child(input) {
+
+    width: 100%;
+    padding: 0.5em;
+    border: 0;
+    box-shadow: 0 0 0 1px $dusty-grey;
+  }
+
+  @include child(submit) {
+
+    border: 0;
+  }
+}

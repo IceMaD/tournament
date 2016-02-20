@@ -10,7 +10,7 @@ import {TeamHolderService} from "../Services/TeamHolderService";
 export class TeamComponent {
   @Input() team: TeamModel;
 
-  static remove(team: TeamModel) {
+  remove(team: TeamModel) {
     TeamHolderService.removeTeam(team);
   }
 }

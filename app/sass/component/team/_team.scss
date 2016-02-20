@@ -1,0 +1,26 @@
+@include component(team) {
+
+  padding: 0.5em 1.5em;
+  box-shadow: shadow-border("bottom", $dusty-grey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include child(name) {
+
+    // @TODO Remove ?
+  }
+
+  @include child(remove) {
+
+    border: 0;
+    background-color: $dusty-grey;
+    color: $snow-white;
+    padding: 0.5em;
+    line-height: 1em;
+    min-width: 2em;
+    min-height: 2em;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}

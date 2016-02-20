@@ -19,7 +19,7 @@ export class TeamManagementView {
   }
 
   isFilled() {
-    TeamHolderService.isFilled()
+    return TeamHolderService.isFilled()
   }
 
   clear() {

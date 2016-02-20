@@ -1,0 +1,103 @@
+@include component(node) {
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  @include child(children) {
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:after, &:before {
+
+      content: "";
+      position: absolute;
+      background-color: black;
+    }
+
+    &:after {
+
+      right: -0.5em;
+      top: 50%;
+      height: 1px;
+      width: 0.5em;
+    }
+
+    &:before {
+
+      right: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+    }
+  }
+
+  @include child(title) {
+
+    position: relative;
+    background-color: $snow-white;
+    border: 1px solid $dusty-grey;
+    font-size: 1em;
+    padding: 0.5em;
+    margin: 0.5em;
+    min-width: 200px;
+    max-height: 2em;
+    border-radius: 3px;
+    color: $text-color;
+    outline: none;
+    cursor: pointer;
+
+    &:before {
+
+      content: "";
+      position: absolute;
+      background-color: black;
+      left: 100%;
+      top: 50%;
+      height: 1px;
+      width: 0.5em;
+    }
+
+    @include modifier(last) {
+
+      &:before {
+
+        content: none;
+      }
+    }
+
+    @include modifier(winner) {
+
+      background-color: lighten($gold-yellow, 10%);
+
+      @include modifier(highlighted) {
+
+        background-color: darken($gold-yellow, 20%);
+      }
+    }
+
+    @include modifier(won) {
+
+      background-color: lighten($granny-green, 10%);
+
+      @include modifier(highlighted) {
+
+        background-color: darken($granny-green, 20%);
+      }
+    }
+
+    @include modifier(lost) {
+
+      background-color: lighten($blush-pink, 10%);
+
+      @include modifier(highlighted) {
+
+        background-color: darken($blush-pink, 20%);
+      }
+    }
+  }
+}

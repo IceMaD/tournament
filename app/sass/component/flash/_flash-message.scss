@@ -1,0 +1,23 @@
+@include component(flash-message) {
+
+  display: block;
+  padding: 1em;
+
+  @include modifier(info) {
+
+    background-color: cornflowerblue;
+    color: white;
+  }
+
+  @include modifier(warning) {
+
+    background-color: orange;
+    color: white;
+  }
+
+  @include modifier(danger) {
+
+    background-color: darkred;
+    color: white;
+  }
+}

@@ -1,0 +1,10 @@
+@include component(button) {
+
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  background-color: $blush-pink;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  display: inline-block;
+}

@@ -1,0 +1,20 @@
+@include component(message) {
+
+  display: flex;
+  align-items: center;
+
+  @include child(status) {
+
+    margin-right: 0.5em;
+
+    @include modifier(error) {
+
+      color: $blush-pink;
+    }
+
+    @include modifier(success) {
+
+      color: $granny-green;
+    }
+  }
+}
