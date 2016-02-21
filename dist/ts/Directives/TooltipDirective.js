@@ -8,7 +8,7 @@ System.register(["angular2/core", "../Components/TooltipComponent"], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, core_2, core_3, core_4, TooltipComponent_1;
+    var core_1, core_2, core_3, core_4, TooltipComponent_1, core_5, core_6, TooltipComponent_2;
     var TooltipDirective;
     return {
         setters:[
@@ -17,9 +17,12 @@ System.register(["angular2/core", "../Components/TooltipComponent"], function(ex
                 core_2 = core_1_1;
                 core_3 = core_1_1;
                 core_4 = core_1_1;
+                core_5 = core_1_1;
+                core_6 = core_1_1;
             },
             function (TooltipComponent_1_1) {
                 TooltipComponent_1 = TooltipComponent_1_1;
+                TooltipComponent_2 = TooltipComponent_1_1;
             }],
         execute: function() {
             TooltipDirective = (function () {
@@ -29,16 +32,16 @@ System.register(["angular2/core", "../Components/TooltipComponent"], function(ex
                     this.condition = true;
                 }
                 TooltipDirective.prototype.show = function () {
-                    var _this = this;
                     if (!this.condition) {
                         return;
                     }
+                    var binding = core_5.Injector.resolve([
+                        new core_6.Provider(TooltipComponent_2.TooltipOptions, { useValue: new TooltipComponent_2.TooltipOptions(this._element.nativeElement, this.text) })
+                    ]);
                     this._tooltip = this._loader
-                        .loadNextToLocation(TooltipComponent_1.TooltipComponent, this._element)
+                        .loadNextToLocation(TooltipComponent_1.TooltipComponent, this._element, binding)
                         .then(function (componentRef) {
-                        componentRef.instance
-                            .setText(_this.text)
-                            .positionAccordingTo(_this._element.nativeElement);
+                        componentRef.instance.position();
                         return componentRef;
                     });
                 };

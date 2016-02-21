@@ -5,6 +5,8 @@ import {DynamicComponentLoader} from "angular2/core";
 import {TooltipComponent} from "../Components/TooltipComponent";
 import {ComponentRef} from "angular2/core";
 import {Injector} from "angular2/core";
+import {Provider} from "angular2/core";
+import {TooltipOptions} from "../Components/TooltipComponent";
 
 @Directive({
   selector: '[tooltip]',
@@ -30,12 +32,14 @@ export class TooltipDirective {
       return;
     }
 
+    let binding = Injector.resolve([
+      new Provider(TooltipOptions, { useValue: new TooltipOptions(this._element.nativeElement, this.text) })
+    ]);
+
     this._tooltip = this._loader
-      .loadNextToLocation(TooltipComponent, this._element)
+      .loadNextToLocation(TooltipComponent, this._element, binding)
       .then((componentRef: ComponentRef) => {
-        componentRef.instance
-          .setText(this.text)
-          .positionAccordingTo(this._element.nativeElement);
+        componentRef.instance.position();
 
         return componentRef;
       });

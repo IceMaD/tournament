@@ -8,11 +8,10 @@
   color: $text-color;
   padding: 0.5em 1.5em;
   border-radius: 3px;
-  transform: translateX(-50%);
+  margin: 0 .5em;
 
-  &:after {
+  @include child(arrow) {
 
-    content: "";
     position: absolute;
     left: 50%;
     top: 100%;

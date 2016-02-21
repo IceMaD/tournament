@@ -13,7 +13,7 @@ export class TeamHolderService {
     new TeamModel('Bananas'),
     new TeamModel('Puppies'),
     new TeamModel('Birds'),
-    new TeamModel('Monkeys'),
+    //new TeamModel('Monkeys'),
   ];
 
   static get teams():TeamModel[] {

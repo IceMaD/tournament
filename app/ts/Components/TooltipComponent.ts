@@ -1,28 +1,64 @@
 import {Component} from "angular2/core";
 import {ElementRef} from "angular2/core";
 
+export class TooltipOptions {
+  constructor(public parent: HTMLElement, public text: string) {}
+}
+
 @Component({
   selector: 'tooltip',
   templateUrl: 'dist/templates/tooltip.html',
 })
 export class TooltipComponent {
-  private text: string;
-  private left: number;
-  private top: number;
 
-  public setText(text: string): this {
-    this.text = text;
+  public text: string;
+  public left: number;
+  public bottom: number;
+  public arrow: number|string;
+
+  private _parent: HTMLElement;
+
+  constructor(
+    private _element: ElementRef,
+    options: TooltipOptions
+  ) {
+    this._parent = options.parent;
+    this.text = options.text;
+  }
+
+  public position(): this {
+    this.bottom = -99999;
+    this.left = -99999;
+    this.arrow = '50%';
+
+    setTimeout(() => {
+      this.fix();
+    });
 
     return this;
   }
 
-  public positionAccordingTo(element: HTMLElement): this {
+  private fix() {
+    var tooltip: HTMLElement = this._element.nativeElement.firstChild;
 
-    let position = element.getBoundingClientRect();
+    let parentRectangle = this._parent.getBoundingClientRect();
+    let tooltipRectangle = tooltip.getBoundingClientRect();
 
-    this.left = position.right - (position.width / 2);
-    this.top = position.top - position.height - 10;
+    let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    return this;
+    let absoluteParentMiddleX = parentRectangle.left + (parentRectangle.width / 2);
+    let bottom = vh - parentRectangle.top + 10;
+    var tooltipMidWidth = (tooltipRectangle.width/2);
+
+    let left = absoluteParentMiddleX - tooltipMidWidth;
+
+    this.bottom = bottom;
+
+    if (left > 0) {
+      this.left = left;
+    } else {
+      this.left = 0;
+      this.arrow = absoluteParentMiddleX + 'px';
+    }
   }
 }
