@@ -12,15 +12,21 @@
            [class.--error]="!isFilled()">{{ isFilled() ? 'check' : 'close' }}</i>
       Currently {{ teams.length }} teams
     </span>
-    <span>
-      <a class="button" [routerLink]="['TreeComponent']">Generate</a>
-      <a class="button" (click)="clear()">Clear</a>
-    </span>
+    <a class="button" [routerLink]="['TreeComponent']">Generate</a>
   </div>
 
   <ul class="todo-list">
     <li class="todo-list_item --title">Idea list :</li>
     <li class="todo-list_item">Empty ....</li>
   </ul>
+  <div class="button-bar">
+    <span>
+    </span>
+    <div>
+      <a class="button"
+         tooltip="Erase every team"
+         (click)="clear()">Clear</a>
+    </div>
+  </div>
 
 </div>

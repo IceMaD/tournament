@@ -47,10 +47,10 @@ export class TooltipComponent {
     let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
     let absoluteParentMiddleX = parentRectangle.left + (parentRectangle.width / 2);
-    let bottom = vh - parentRectangle.top + 10;
-    var tooltipMidWidth = (tooltipRectangle.width/2);
+    let bottom = vh - parentRectangle.top;
+    var tooltipMidWidth = (tooltipRectangle.width /2);
 
-    let left = absoluteParentMiddleX - tooltipMidWidth;
+    let left = absoluteParentMiddleX - tooltipMidWidth - parseInt(window.getComputedStyle(tooltip).marginLeft);
 
     this.bottom = bottom;
 

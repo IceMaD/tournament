@@ -8,7 +8,7 @@
   color: $text-color;
   padding: 0.5em 1.5em;
   border-radius: 3px;
-  margin: 0 .5em;
+  margin: 0 .5em .5em;
 
   @include child(arrow) {
 
@@ -19,7 +19,7 @@
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 10px 10px 0 10px;
+    border-width: .5em .5em 0 .5em;
     border-color: $background-color transparent transparent transparent;
   }
 }
