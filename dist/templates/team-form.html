@@ -1,0 +1,17 @@
+<!-- @TODO use form -->
+<form (submit)="addTeam()" class="team-form">
+    <input type="text"
+           placeholder="Ajouter une équipe"
+           [(ngModel)]="model"
+           class="team-form_input">
+    <button class="team-form_submit"
+            type="submit"
+            [disabled]="!model">
+        <i class="material-icons">add</i>
+    </button>
+
+    <div class="team-form_row">
+        <a class="team-form_clear" (click)="clear()">Vider la liste</a>
+    </div>
+</form>
+
