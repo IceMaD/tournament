@@ -20,4 +20,7 @@ export class TeamFormComponent {
     this.model = '';
   }
 
+  clear() {
+    TeamHolderService.clear()
+  }
 }

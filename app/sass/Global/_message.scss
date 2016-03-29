@@ -1,0 +1,30 @@
+@include component(message) {
+
+    $error-text-color: $red-cabaret;
+    $sub-text-color: $grey-jungle-mist;
+    $success-text-color: $green-shamrock;
+
+    display: flex;
+    align-items: center;
+
+    @include modifier(icon-offset) {
+        margin-left: 3.5rem;
+    }
+
+    @include modifier(sub) {
+        color: $sub-text-color;
+        font-size: 1.4rem;
+    }
+
+    @include child(status) {
+        margin-right: 0.5em;
+
+        @include modifier(error) {
+            color: $error-text-color;
+        }
+
+        @include modifier(success) {
+            color: $success-text-color;
+        }
+    }
+}

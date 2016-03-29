@@ -1,4 +1,6 @@
-System.register(["./TeamModel", "../Services/IdService", "../Services/TeamHolderService"], function(exports_1) {
+System.register(["./TeamModel", "../Services/IdService", "../Services/TeamHolderService"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var TeamModel_1, IdService_1, TeamHolderService_1;
     var NodeModel;
     return {
@@ -59,7 +61,7 @@ System.register(["./TeamModel", "../Services/IdService", "../Services/TeamHolder
                     }
                 };
                 return NodeModel;
-            })();
+            }());
             exports_1("NodeModel", NodeModel);
         }
     }

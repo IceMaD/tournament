@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Angular 2 Tournament tree</title>
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -12,23 +12,25 @@
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/underscore/underscore-min.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="dist/css/style.css">
     <!-- 2. Configure SystemJS -->
     <script>
-      System.config({
-        packages: {
-          dist: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('dist/ts/boot')
+        System.config({
+            packages: {
+                dist: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('dist/ts/boot')
             .then(null, console.error.bind(console));
     </script>
-  </head>
-  <!-- 3. Display the application -->
-  <body>
-    <tournament-app>Loading...</tournament-app>
-  </body>
+</head>
+<!-- 3. Display the application -->
+<body>
+<tournament-app>Loading...</tournament-app>
+</body>
 </html>

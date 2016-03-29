@@ -1,9 +1,9 @@
 @include component(flash-message) {
 
-  $text-color: $snow-white;
-  $info-background-color: $perano-blue;
-  $danger-background-color: $blush-pink;
-  $warning-background-color: $gold-yellow;
+  $base-text-color: $white-snow;
+  $info-background-color: $orange-sanguine;
+  $danger-background-color: $red-cabaret;
+  $warning-background-color: $yellow-gold;
 
   display: block;
   padding: 1em;
@@ -11,18 +11,18 @@
   @include modifier(info) {
 
     background-color: $info-background-color;
-    color: $text-color;
+    color: $base-text-color;
   }
 
   @include modifier(warning) {
 
     background-color: $warning-background-color;
-    color: $text-color;
+    color: $base-text-color;
   }
 
   @include modifier(danger) {
 
     background-color: $danger-background-color;
-    color: $text-color;
+    color: $base-text-color;
   }
 }

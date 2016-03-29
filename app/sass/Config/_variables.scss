@@ -1,0 +1,65 @@
+$base-font-family: 'Oswald', sans-serif;
+// Colors
+
+$white-snow:          #FFF;
+
+$grey-jungle-mist:    #B7D2D7;
+$grey-fiord:          #3F5461;
+
+$orange-sanguine: #ED794E;
+$red-cabaret:     #f04E61;
+$green-shamrock:  #65B1A4;
+$yellow-gold:     #EEB94C;
+
+$breakpoint-from-phablet: 480px;
+$breakpoint-from-tablet: 768px;
+$breakpoint-from-desktop: 1024px;
+
+$breakpoint-to-phone: ($breakpoint-from-phablet - 1);
+$breakpoint-to-phablet: ($breakpoint-from-tablet - 1);
+$breakpoint-to-tablet: ($breakpoint-from-desktop - 1);
+
+$base-media-queries: (
+    to-phone: '(max-width: #{$breakpoint-to-phone})',
+    from-phablet: '(min-width: #{$breakpoint-from-phablet})',
+    on-phablet: '(min-width: #{$breakpoint-from-phablet}) and (max-width: #{$breakpoint-to-phablet})',
+    to-phablet: '(max-width: #{$breakpoint-to-phablet})',
+    from-tablet: '(min-width: #{$breakpoint-from-tablet})',
+    on-tablet: '(min-width: #{$breakpoint-from-tablet}) and (max-width: #{$breakpoint-to-tablet})',
+    to-tablet: '(max-width: #{$breakpoint-to-tablet})',
+    from-desktop: '(min-width: #{$breakpoint-from-desktop})'
+);
+
+$base-media-queries: map_merge($base-media-queries, (
+    phone: map_get($base-media-queries, to-phone),
+    on-phone: map_get($base-media-queries, to-phone),
+    phablet: map_get($base-media-queries, on-phablet),
+    tablet: map_get($base-media-queries, on-tablet),
+    desktop: map_get($base-media-queries, from-desktop),
+    on-desktop: map_get($base-media-queries, from-desktop)
+));
+
+// Global colors
+
+$base-title-color: $grey-fiord;
+$base-text-color:  $grey-fiord;
+
+$base-primary-color: $orange-sanguine;
+$base-border-color: $grey-jungle-mist;
+
+// Padding
+
+$base-default-vertical-button-padding: 0.5em;
+$base-large-vertical-button-padding: 0.8em;
+
+// Font weights
+
+$base-light-font-weight:   300;
+$base-regular-font-weight: 400;
+$base-medium-font-weight:  500;
+$base-bold-font-weight:    700;
+
+// Other
+
+$base-radius:      3px;
+$base-transition: .15s all ease-in-out;

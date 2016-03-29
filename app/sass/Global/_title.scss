@@ -1,0 +1,12 @@
+@include component(title) {
+
+    $trapped-text-color: $white-snow;
+
+    display: inline-block;
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    @include modifier(trapped) {
+        color: $trapped-text-color;
+    }
+}

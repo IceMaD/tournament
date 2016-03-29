@@ -1,11 +1,11 @@
 @include component(tooltip) {
 
-  $background-color: $perano-blue;
-  $text-color: $snow-white;
+  $background-color: $orange-sanguine;
+  $base-text-color: $white-snow;
 
   position: fixed;
   background-color: $background-color;
-  color: $text-color;
+  color: $base-text-color;
   padding: 0.5em 1.5em;
   border-radius: 3px;
   margin: 0 .5em .5em;

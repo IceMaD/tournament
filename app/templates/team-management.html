@@ -1,32 +1,27 @@
-<div class="container">
-  <team [team]="team" *ngFor="#team of teams"></team>
+<div class="container --global">
 
-  <team-form></team-form>
+    <h2 class="title">
+        Ajoutez vos équipes pour générer l’arbre des compétitions
+    </h2>
 
-  <div class="button-bar">
-    <span class="message"
-          tooltip="You must register 2, 4, 8, 16 or 32 teams"
-          [tooltip-condition]="!isFilled()">
-        <i class="message_status material-icons"
-           [class.--success]="isFilled()"
-           [class.--error]="!isFilled()">{{ isFilled() ? 'check' : 'close' }}</i>
-      Currently {{ teams.length }} teams
-    </span>
-    <a class="button" [routerLink]="['TreeComponent']">Generate</a>
-  </div>
+    <team [team]="team" *ngFor="#team of teams"></team>
 
-  <ul class="todo-list">
-    <li class="todo-list_item --title">Idea list :</li>
-    <li class="todo-list_item">Empty ....</li>
-  </ul>
-  <div class="button-bar">
-    <span>
-    </span>
-    <div>
-      <a class="button"
-         tooltip="Erase every team"
-         (click)="clear()">Clear</a>
+    <br>
+
+    <team-form></team-form>
+
+    <div class="button-bar">
+        <span class="message">
+            <i *ngIf="isFilled()" class="message_status material-icons --success">check</i>
+            <i *ngIf="!isFilled()" class="message_status material-icons --error">close</i>
+            Vous avez {{ teams.length }} équipe{{ teams.length > 1 ? 's' : '' }}
+        </span>
+        <a class="button" [routerLink]="['TreeComponent']">Generate</a>
     </div>
-  </div>
+    <div class="button-bar">
+        <span class="message --icon-offset --sub">
+            Vous devez avoir 2, 4, 8, 16 ou 32 équipes
+        </span>
+    </div>
 
 </div>

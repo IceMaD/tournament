@@ -1,0 +1,40 @@
+@include component(team) {
+
+    $default-border-color: $grey-jungle-mist;
+    $focus-border-color: $red-cabaret;
+
+    $remove-text-color: $red-cabaret;
+
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+    position: relative;
+
+    @include child(editor) {
+        display: block;
+        width: 100%;
+        font: inherit;
+        outline: none;
+        border: none;
+        line-height: 1.5;
+        padding: .25em 2.5em .25em 0;
+        background-color: transparent;
+        box-shadow: shadow-border(bottom, $default-border-color, 2px);
+
+        &:focus {
+            box-shadow: shadow-border(bottom, $focus-border-color, 2px);
+        }
+    }
+
+    @include child(remove) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        color: $remove-text-color;
+        line-height: 1em;
+        cursor: pointer;
+    }
+}

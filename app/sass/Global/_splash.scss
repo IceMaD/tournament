@@ -1,0 +1,15 @@
+@include component(splash) {
+
+    $default-background-color: $orange-sanguine;
+    $default-text-color: $white-snow;
+
+    background-color: $default-background-color;
+    text-align: center;
+    color: $default-text-color;
+    padding: 4rem;
+
+    @include child(title) {
+        font-size: 7rem;
+        margin-bottom: .25em;
+    }
+}

@@ -22,8 +22,4 @@ export class TeamManagementView {
   isFilled() {
     return TeamHolderService.isFilled()
   }
-
-  clear() {
-    TeamHolderService.clear()
-  }
 }

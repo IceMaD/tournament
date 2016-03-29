@@ -1,4 +1,6 @@
-System.register(["../Models/NodeModel", "./TeamHolderService"], function(exports_1) {
+System.register(["../Models/NodeModel", "./TeamHolderService"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var NodeModel_1, TeamHolderService_1;
     var TreeManager;
     return {
@@ -78,7 +80,7 @@ System.register(["../Models/NodeModel", "./TeamHolderService"], function(exports
                 };
                 TreeManager._nodes = [];
                 return TreeManager;
-            })();
+            }());
             exports_1("TreeManager", TreeManager);
         }
     }

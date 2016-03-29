@@ -14,7 +14,7 @@ import {TreeManager} from "../Services/TreeManager";
 
 export class TreeView {
   private tree: Object;
-  private debug;
+  private debug: Boolean;
 
   constructor(
     private _router: Router

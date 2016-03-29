@@ -1,12 +1,12 @@
 @include component(node) {
 
-    $title-background-color: $snow-white;
-    $title-border-color: $alto-grey;
-    $title-text-color: $text-color;
+    $title-background-color: $white-snow;
+    $title-border-color: $grey-jungle-mist;
+    $title-text-color: $base-text-color;
 
-    $winner-background-color: $gold-yellow;
-    $won-background-color: $granny-green;
-    $lost-background-color: $blush-pink;
+    $winner-background-color: $yellow-gold;
+    $won-background-color: $green-shamrock;
+    $lost-background-color: $red-cabaret;
 
     @mixin node-title-variant($name, $color) {
 

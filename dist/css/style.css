@@ -1,7 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,14 +14,19 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 1em;
   vertical-align: baseline; }
 
-/* HTML5 display-role reset for older browsers */
+* {
+  box-sizing: border-box; }
+
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
   display: block; }
+
+html {
+  font-size: 62.5%; }
 
 body {
   line-height: 1; }
@@ -38,28 +39,28 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
+  content: "";
   content: none; }
-
-html {
-  font-size: 62.5%; }
 
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-* {
-  box-sizing: border-box; }
+sup {
+  vertical-align: super;
+  font-size: smaller; }
 
-router-outlet {
-  display: none; }
+a {
+  text-decoration: none; }
 
-.container, .button, .button-bar, .message, .tooltip, .todo-list, .tree, .node, .flash-box, .flash-message, .team, .team-form {
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important; }
+
+.container, .button, .button-bar, .message, .tooltip, .splash, .title, .tree, .node, .flash-box, .flash-message, .team, .team-form {
   display: block;
-  color: #222;
-  cursor: default;
+  color: #3F5461;
   direction: ltr;
-  font-family: Roboto, sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 300;
@@ -72,47 +73,19 @@ router-outlet {
   white-space: normal;
   word-spacing: normal; }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/MaterialIcons-Regular.eot);
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/MaterialIcons-Regular.woff) format("woff"), url(../fonts/MaterialIcons-Regular.ttf) format("truetype"); }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.5em;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga'; }
-
 .container {
   margin-top: 3em;
   margin-left: auto;
   margin-right: auto;
   max-width: 600px; }
+  .container.\--global {
+    padding-bottom: 5rem; }
 
 .button {
   padding: 0.5em 1.5em;
   text-decoration: none;
-  background-color: #a1c0ed;
-  color: #fff;
+  background-color: #ED794E;
+  color: #FFF;
   cursor: pointer;
   border-radius: 3px;
   display: inline-block; }
@@ -126,17 +99,22 @@ router-outlet {
 .message {
   display: flex;
   align-items: center; }
+  .message.\--icon-offset {
+    margin-left: 3.5rem; }
+  .message.\--sub {
+    color: #B7D2D7;
+    font-size: 1.4rem; }
   .message_status {
     margin-right: 0.5em; }
     .message_status.\--error {
-      color: #E78894; }
+      color: #f04E61; }
     .message_status.\--success {
-      color: #A0E788; }
+      color: #65B1A4; }
 
 .tooltip {
   position: fixed;
-  background-color: #a1c0ed;
-  color: #fff;
+  background-color: #ED794E;
+  color: #FFF;
   padding: 0.5em 1.5em;
   border-radius: 3px;
   margin: 0 .5em .5em; }
@@ -149,22 +127,23 @@ router-outlet {
     height: 0;
     border-style: solid;
     border-width: .5em .5em 0 .5em;
-    border-color: #a1c0ed transparent transparent transparent; }
+    border-color: #ED794E transparent transparent transparent; }
 
-.todo-list {
-  margin-top: 3em;
-  padding: 2em;
-  border-radius: 5px;
-  box-shadow: inset 0 0 0 1px #ddd; }
-  .todo-list_item {
-    line-height: 1.5; }
-    .todo-list_item:not(.\--title) {
-      margin-left: 1em; }
-      .todo-list_item:not(.\--title):before {
-        content: '- '; }
-    .todo-list_item.\--title {
-      font-size: 1.5em;
-      margin-bottom: .5em; }
+.splash {
+  background-color: #ED794E;
+  text-align: center;
+  color: #FFF;
+  padding: 4rem; }
+  .splash_title {
+    font-size: 7rem;
+    margin-bottom: .25em; }
+
+.title {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase; }
+  .title.\--trapped {
+    color: #FFF; }
 
 .tree {
   padding: 1em; }
@@ -203,15 +182,15 @@ router-outlet {
       border: 1px solid red; }
   .node_title {
     position: relative;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #FFF;
+    border: 1px solid #B7D2D7;
     font-size: 1em;
     padding: 0.5em;
     margin: 0.5em;
     min-width: 200px;
     max-height: 2em;
     border-radius: 3px;
-    color: #222;
+    color: #3F5461;
     outline: none;
     cursor: pointer; }
     .node_title:before {
@@ -229,17 +208,17 @@ router-outlet {
       background-color: lightgreen;
       border: 1px solid green; }
     .node_title.\--winner {
-      background-color: #ffeba8; }
+      background-color: #f2cb7b; }
       .node_title.\--winner.\--highlighted {
-        background-color: #ffc90f; }
+        background-color: #c28812; }
     .node_title.\--won {
-      background-color: #c2f0b2; }
+      background-color: #87c2b8; }
       .node_title.\--won.\--highlighted {
-        background-color: #5cd633; }
+        background-color: #3b756b; }
     .node_title.\--lost {
-      background-color: #f0b2ba; }
+      background-color: #f47d8b; }
       .node_title.\--lost.\--highlighted {
-        background-color: #d63348; }
+        background-color: #c71126; }
 
 .flash-box {
   position: fixed;
@@ -251,57 +230,80 @@ router-outlet {
   display: block;
   padding: 1em; }
   .flash-message.\--info {
-    background-color: #a1c0ed;
-    color: #fff; }
+    background-color: #ED794E;
+    color: #FFF; }
   .flash-message.\--warning {
-    background-color: #ffe075;
-    color: #fff; }
+    background-color: #EEB94C;
+    color: #FFF; }
   .flash-message.\--danger {
-    background-color: #E78894;
-    color: #fff; }
+    background-color: #f04E61;
+    color: #FFF; }
 
 .team {
-  padding: 0.5em 0;
-  box-shadow: inset 0 -1px 0 0 #ddd;
-  display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  margin-top: 1em;
+  position: relative; }
   .team_editor {
-    border: none;
-    font-size: inherit;
-    outline: none;
-    line-height: 1.5;
     display: block;
-    flex-grow: 1;
-    margin-right: 1em; }
+    width: 100%;
+    font: inherit;
+    outline: none;
+    border: none;
+    line-height: 1.5;
+    padding: .25em 2.5em .25em 0;
+    background-color: transparent;
+    box-shadow: inset 0 -2px 0 0 #B7D2D7; }
+    .team_editor:focus {
+      box-shadow: inset 0 -2px 0 0 #f04E61; }
   .team_remove {
+    position: absolute;
+    top: 0;
+    right: 0;
     border: 0;
-    background-color: #E78894;
-    color: #fff;
-    padding: 0.5em;
+    outline: none;
+    background-color: transparent;
+    color: #f04E61;
     line-height: 1em;
-    min-width: 2em;
-    min-height: 2em;
-    border-radius: 3px;
     cursor: pointer; }
 
 .team-form {
-  margin: 1em 0;
-  display: flex; }
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  position: relative; }
   .team-form_input {
+    display: block;
     width: 100%;
-    padding: 0.5em;
-    border: 0;
-    box-shadow: inset 0 1px 0 0 #ddd, inset 0 -1px 0 0 #ddd, inset 1px 0 0 0 #ddd;
-    outline: none; }
+    font: inherit;
+    outline: none;
+    border: none;
+    line-height: 1.5;
+    padding: .25em 2.5em .25em 0;
+    background-color: transparent;
+    box-shadow: inset 0 -2px 0 0 #B7D2D7; }
+    .team-form_input:focus {
+      box-shadow: inset 0 -2px 0 0 #f04E61; }
   .team-form_submit {
+    position: absolute;
+    top: 0;
+    right: 0;
     border: 0;
-    color: #fff;
-    background-color: #A0E788;
-    box-shadow: inset 0 1px 0 0 #6dda48, inset -1px 0 0 0 #6dda48, inset 0 -1px 0 0 #6dda48;
-    outline: none; }
+    outline: none;
+    background-color: transparent;
+    color: #65B1A4;
+    line-height: 1em;
+    cursor: pointer; }
     .team-form_submit:disabled {
-      background-color: #ddd;
-      box-shadow: inset 0 1px 0 0 #ddd, inset -1px 0 0 0 #ddd, inset 0 -1px 0 0 #ddd; }
-    .team-form_submit:not(:disabled) {
-      cursor: pointer; }
+      color: #B7D2D7; }
+  .team-form_row {
+    margin: 1em 0 2em;
+    text-align: right; }
+  .team-form_clear {
+    font-weight: bold;
+    letter-spacing: .1em;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #f04E61;
+    font-size: 1.4rem;
+    cursor: pointer; }

@@ -1,20 +1,23 @@
-@import 'ext/reset';
-@import 'ext/variables';
-@import 'ext/mixins';
-@import 'ext/fonts';
+@import 'Config/reset';
+@import 'Config/variables';
 
-@import 'component/global/container';
-@import 'component/global/button';
-@import 'component/global/button-bar';
-@import 'component/global/message';
-@import 'component/global/tooltip';
-@import 'component/global/todo-list';
+@import 'Tools/ceyd';
+@import 'Tools/mixins';
+@import 'Tools/functions';
 
-@import 'component/tree/tree';
-@import 'component/tree/node';
+@import 'Global/container';
+@import 'Global/button';
+@import 'Global/button-bar';
+@import 'Global/message';
+@import 'Global/tooltip';
+@import 'Global/splash';
+@import 'Global/title';
 
-@import 'component/flash/flash-box';
-@import 'component/flash/flash-message';
+@import 'Tree/tree';
+@import 'Tree/node';
 
-@import 'component/team/team';
-@import 'component/team/team-form';
+@import 'Flash/flash-box';
+@import 'Flash/flash-message';
+
+@import 'Team/team';
+@import 'Team/team-form';
