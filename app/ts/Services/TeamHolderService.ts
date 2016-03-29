@@ -13,7 +13,7 @@ export class TeamHolderService {
     new TeamModel('Bananas'),
     new TeamModel('Puppies'),
     new TeamModel('Birds'),
-    //new TeamModel('Monkeys'),
+    new TeamModel('Monkeys'),
   ];
 
   static get teams():TeamModel[] {
@@ -49,7 +49,6 @@ export class TeamHolderService {
 
   static clear():void {
     TreeManager.clear();
-    // @TODO Clear tree
     this._teamList.length = 0;
   }
 

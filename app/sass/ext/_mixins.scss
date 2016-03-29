@@ -63,7 +63,3 @@ $font-family: $font;
     @error 'Modifiers should always have a parent';
   }
 }
-
-@mixin modified($name) {
-  .\--#{$name} {}
-}
