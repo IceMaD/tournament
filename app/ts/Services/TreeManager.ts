@@ -83,4 +83,10 @@ export class TreeManager {
     this._nodes = this._nodes.concat(nodes);
     this._tree = nodes[0];
   }
+
+  static toggleDebug(): void {
+    this.forEachNode(function(node: NodeModel) {
+      node.debug = !node.debug;
+    })
+  }
 }

@@ -11,6 +11,7 @@ export class NodeModel {
   public name: string;
   public children: NodeModel[]= [];
   public team: TeamModel;
+  public debug: Boolean = false;
 
   constructor() {
     this._id = IdService.getUniqueId();
