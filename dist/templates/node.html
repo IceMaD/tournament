@@ -5,7 +5,7 @@
           '--lost': node.status == 'lost',
           '--highlighted': node.highlighted,
           '--winner': node.last && node.team,
-          '--clickable': node.team && !node.status,
+          '--clickable': node.team && !node.status && !node.last,
           '--debug': node.debug
         }"
         [overlay]="node"
