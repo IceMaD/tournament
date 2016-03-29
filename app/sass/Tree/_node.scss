@@ -1,8 +1,8 @@
 @include component(node) {
 
-    $title-background-color: $white-snow;
-    $title-border-color: $grey-jungle-mist;
-    $title-text-color: $base-text-color;
+    $title-background-color: $grey-clay;
+    $clickable-background-color: $grey-slate;
+    $title-text-color: $white-snow;
 
     $winner-background-color: $yellow-gold;
     $won-background-color: $green-shamrock;
@@ -12,7 +12,7 @@
 
         @include modifier($name) {
 
-            background-color: lighten($color, 10%);
+            background-color: $color;
 
             @include modifier(highlighted) {
                 background-color: darken($color, 20%);
@@ -33,20 +33,17 @@
     }
 
     @include child(children) {
-
         display: flex;
         flex-direction: column;
         position: relative;
 
         &:after, &:before {
-
             content: "";
             position: absolute;
             background-color: black;
         }
 
         &:after {
-
             right: -0.5em;
             top: 50%;
             height: 1px;
@@ -54,7 +51,6 @@
         }
 
         &:before {
-
             right: 0;
             top: 25%;
             height: 50%;
@@ -69,22 +65,19 @@
     }
 
     @include child(title) {
-
         position: relative;
         background-color: $title-background-color;
-        border: 1px solid $title-border-color;
+        border: none;
         font-size: 1em;
-        padding: 0.5em;
+        padding: 1em;
         margin: 0.5em;
         min-width: 200px;
-        max-height: 2em;
         border-radius: 3px;
         color: $title-text-color;
         outline: none;
         cursor: pointer;
 
         &:before {
-
             content: "";
             position: absolute;
             background-color: black;
@@ -101,14 +94,10 @@
             }
         }
 
-        @include modifier(debug) {
-            padding: .5em;
-            background-color: lightgreen;
-            border: 1px solid green;
-        }
-
         @include node-title-variant('winner' , $winner-background-color);
         @include node-title-variant('won' , $won-background-color);
         @include node-title-variant('lost' , $lost-background-color);
+        @include node-title-variant('clickable' , $clickable-background-color);
+
     }
 }

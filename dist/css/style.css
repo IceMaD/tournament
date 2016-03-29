@@ -182,15 +182,14 @@ a {
       border: 1px solid red; }
   .node_title {
     position: relative;
-    background-color: #FFF;
-    border: 1px solid #B7D2D7;
+    background-color: #DDD;
+    border: none;
     font-size: 1em;
-    padding: 0.5em;
+    padding: 1em;
     margin: 0.5em;
     min-width: 200px;
-    max-height: 2em;
     border-radius: 3px;
-    color: #3F5461;
+    color: #FFF;
     outline: none;
     cursor: pointer; }
     .node_title:before {
@@ -203,22 +202,22 @@ a {
       width: 0.5em; }
     .node_title.\--last:before {
       content: none; }
-    .node_title.\--debug {
-      padding: .5em;
-      background-color: lightgreen;
-      border: 1px solid green; }
     .node_title.\--winner {
-      background-color: #f2cb7b; }
+      background-color: #EEB94C; }
       .node_title.\--winner.\--highlighted {
         background-color: #c28812; }
     .node_title.\--won {
-      background-color: #87c2b8; }
+      background-color: #65B1A4; }
       .node_title.\--won.\--highlighted {
         background-color: #3b756b; }
     .node_title.\--lost {
-      background-color: #f47d8b; }
+      background-color: #f04E61; }
       .node_title.\--lost.\--highlighted {
         background-color: #c71126; }
+    .node_title.\--clickable {
+      background-color: #BBB; }
+      .node_title.\--clickable.\--highlighted {
+        background-color: #888888; }
 
 .flash-box {
   position: fixed;
