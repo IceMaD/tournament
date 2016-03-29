@@ -1,0 +1,16 @@
+@include component(log) {
+
+    $winner-text-color: $green-shamrock;
+    $looser-text-color: $red-cabaret;
+
+    text-transform: uppercase;
+    margin-top: 1em;
+
+    @include child(winner) {
+        color: $winner-text-color;
+    }
+
+    @include child(looser) {
+        color: $looser-text-color;
+    }
+}

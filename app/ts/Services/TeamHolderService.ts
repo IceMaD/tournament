@@ -16,8 +16,14 @@ export class TeamHolderService {
     new TeamModel('Monkeys'),
   ];
 
+  private static _log: {}[] = [];
+
   static get teams():TeamModel[] {
     return this._teamList;
+  }
+
+  static get log():{}[] {
+    return this._log;
   }
 
   static addTeam(name: string): TeamHolderService {
@@ -58,6 +64,8 @@ export class TeamHolderService {
     if (wonPlace instanceof NodeModel && !wonPlace.team && wonPlace.allChildrenHaveTeam()) {
       wonPlace.setWinTeam(node.team);
 
+      this.logWin(wonPlace);
+
       return true;
     }
 
@@ -97,5 +105,19 @@ export class TeamHolderService {
     TreeManager.clear();
 
     return true;
+  }
+
+  private static logWin(wonNode: NodeModel):void {
+
+    let looser: string, winner: string = wonNode.team.name;
+
+    for (let i = 0; i < wonNode.children.length; i++) {
+      if (wonNode.children[i].team.name !== winner) {
+        looser = wonNode.children[i].team.name;
+        break;
+      }
+    }
+
+    this._log.push({winner: winner, looser: looser});
   }
 }

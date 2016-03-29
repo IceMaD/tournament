@@ -44,6 +44,7 @@ System.register(["angular2/router", "angular2/core", "../Services/FlashService",
                         return;
                     }
                     this.tree = TreeManager_1.TreeManager.tree;
+                    this.log = TeamHolderService_1.TeamHolderService.log;
                 };
                 TreeView.prototype.toggleDebug = function () {
                     TreeManager_1.TreeManager.toggleDebug();

@@ -11,10 +11,10 @@ import {TreeManager} from "../Services/TreeManager";
   templateUrl: 'dist/templates/tree.html',
   directives: [RouterLink, NodeComponent]
 })
-
 export class TreeView {
   private tree: Object;
   private debug: Boolean;
+  private log: {}[];
 
   constructor(
     private _router: Router
@@ -29,6 +29,7 @@ export class TreeView {
     }
 
     this.tree = TreeManager.tree;
+    this.log = TeamHolderService.log;
   }
 
   public toggleDebug() {
