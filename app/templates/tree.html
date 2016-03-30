@@ -18,6 +18,9 @@
     </div>
 
     <div *ngFor="#match of log" class="log">
-        <span class="log_winner">{{ match.winner.name }}</span> a gagné face à <span class="log_looser">{{ match.looser.name }}</span>
+        {{ match.date |date:'jms' }} :
+        <span class="log_winner">{{ match.winner.name }}</span>
+        a gagné face à
+        <span class="log_looser">{{ match.looser.name }}</span>
     </div>
 </div>

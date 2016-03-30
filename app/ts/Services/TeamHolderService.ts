@@ -118,6 +118,6 @@ export class TeamHolderService {
       }
     }
 
-    this._log.push({winner: winner, looser: looser});
+    this._log.push({winner: winner, looser: looser, date: new Date()});
   }
 }
