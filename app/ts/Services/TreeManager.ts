@@ -6,6 +6,7 @@ export class TreeManager {
 
   private static _nodes: NodeModel[] = [];
   private static _tree: NodeModel;
+  private static _degug: boolean = false;
 
   static get tree():NodeModel {
     if (!this.hasTree()) {
@@ -84,9 +85,13 @@ export class TreeManager {
     this._tree = nodes[0];
   }
 
-  static toggleDebug(): void {
-    this.forEachNode(function(node: NodeModel) {
-      node.debug = !node.debug;
+  static toggleDebug(): boolean {
+    this._degug = ! this._degug;
+
+    this.forEachNode((node: NodeModel) => {
+      node.debug = this._degug;
     })
+
+    return this._degug;
   }
 }

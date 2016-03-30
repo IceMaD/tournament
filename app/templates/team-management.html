@@ -16,7 +16,7 @@
             <i *ngIf="!isFilled()" class="message_status material-icons --error">close</i>
             Vous avez {{ teams.length }} équipe{{ teams.length > 1 ? 's' : '' }}
         </span>
-        <a class="button" [routerLink]="['TreeComponent']">Generate</a>
+        <button class="button" [routerLink]="['TreeComponent']" [disabled]="!isFilled()">Alles à l'arbre</button>
     </div>
     <div class="button-bar">
         <span class="message --icon-offset --sub">

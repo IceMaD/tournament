@@ -1,13 +1,19 @@
 @include component(button) {
+    $disabled-background-color: $grey-slate;
+    $default-background-color: $orange-sanguine;
+    $default-text-color: $white-snow;
 
-  $default-background-color: $orange-sanguine;
-  $default-text-color: $white-snow;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    background-color: $default-background-color;
+    color: $default-text-color;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    display: inline-block;
 
-  padding: 0.5em 1.5em;
-  text-decoration: none;
-  background-color: $default-background-color;
-  color: $default-text-color;
-  cursor: pointer;
-  border-radius: 3px;
-  display: inline-block;
+    &:disabled {
+        background-color: $disabled-background-color;
+        cursor: default;
+    }
 }

@@ -90,8 +90,12 @@ a {
   background-color: #ED794E;
   color: #FFF;
   cursor: pointer;
+  border: none;
   border-radius: 3px;
   display: inline-block; }
+  .button:disabled {
+    background-color: #BBB;
+    cursor: default; }
 
 .button-bar {
   display: flex;

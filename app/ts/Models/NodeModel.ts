@@ -61,7 +61,7 @@ export class NodeModel {
     for (let i = 0; i < this.children.length; i++) {
       let child:NodeModel = this.children[i];
 
-      child.status = child.team.name === team.name ? 'won' : 'lost';
+      child.status = child.team.id === team.id ? 'won' : 'lost';
     }
   }
 }
