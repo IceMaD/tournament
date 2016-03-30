@@ -98,7 +98,7 @@ System.register(["../Models/TeamModel", "../Models/NodeModel", "./TreeManager"],
                             break;
                         }
                     }
-                    this._log.push({ winner: winner, looser: looser });
+                    this._log.push({ winner: winner, looser: looser, date: new Date() });
                 };
                 TeamHolderService._teamList = [
                     new TeamModel_1.TeamModel('Coconuts'),

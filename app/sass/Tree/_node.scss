@@ -69,7 +69,6 @@
         position: relative;
         background-color: $title-background-color;
         border: none;
-        font-size: 1em;
         padding: 1em;
         margin: 0.5em;
         min-width: 200px;
@@ -77,6 +76,8 @@
         color: $title-text-color;
         outline: none;
         cursor: pointer;
+        font: inherit;
+        font-size: 1em;
 
         &:before {
             content: "";
