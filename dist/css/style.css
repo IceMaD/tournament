@@ -156,7 +156,7 @@ a {
   padding: 1em; }
 
 .node {
-  display: flex;
+  display: inline-flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
@@ -172,7 +172,7 @@ a {
     .node_children:after, .node_children:before {
       content: "";
       position: absolute;
-      background-color: black; }
+      background-color: #BBB; }
     .node_children:after {
       right: -0.5em;
       top: 50%;
@@ -202,7 +202,7 @@ a {
     .node_title:before {
       content: "";
       position: absolute;
-      background-color: black;
+      background-color: #BBB;
       left: 100%;
       top: 50%;
       height: 1px;
