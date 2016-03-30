@@ -39,7 +39,7 @@ System.register(["angular2/router", "angular2/core", "../Services/FlashService",
                 }
                 TreeView.prototype.ngOnInit = function () {
                     if (!TeamHolderService_1.TeamHolderService.isFilled()) {
-                        FlashService_1.FlashService.push('You must register 2, 4, 8, 16 or 32 teams');
+                        FlashService_1.FlashService.push('Vous devez avoir 2, 4, 8, 16 ou 32 équipes');
                         this._router.navigate(['TeamManagement']);
                         return;
                     }
@@ -47,7 +47,7 @@ System.register(["angular2/router", "angular2/core", "../Services/FlashService",
                     this.log = TeamHolderService_1.TeamHolderService.log;
                 };
                 TreeView.prototype.toggleDebug = function () {
-                    TreeManager_1.TreeManager.toggleDebug();
+                    this.debug = TreeManager_1.TreeManager.toggleDebug();
                 };
                 TreeView = __decorate([
                     core_1.Component({

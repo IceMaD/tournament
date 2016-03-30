@@ -57,7 +57,7 @@ System.register(["./TeamModel", "../Services/IdService", "../Services/TeamHolder
                     this.team = team;
                     for (var i = 0; i < this.children.length; i++) {
                         var child = this.children[i];
-                        child.status = child.team.name === team.name ? 'won' : 'lost';
+                        child.status = child.team.id === team.id ? 'won' : 'lost';
                     }
                 };
                 return NodeModel;

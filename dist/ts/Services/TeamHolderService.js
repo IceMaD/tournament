@@ -91,10 +91,10 @@ System.register(["../Models/TeamModel", "../Models/NodeModel", "./TreeManager"],
                     return true;
                 };
                 TeamHolderService.logWin = function (wonNode) {
-                    var looser, winner = wonNode.team.name;
+                    var looser, winner = wonNode.team;
                     for (var i = 0; i < wonNode.children.length; i++) {
-                        if (wonNode.children[i].team.name !== winner) {
-                            looser = wonNode.children[i].team.name;
+                        if (wonNode.children[i].team.id !== winner.id) {
+                            looser = wonNode.children[i].team;
                             break;
                         }
                     }

@@ -109,11 +109,11 @@ export class TeamHolderService {
 
   private static logWin(wonNode: NodeModel):void {
 
-    let looser: string, winner: string = wonNode.team.name;
+    let looser: TeamModel, winner: TeamModel = wonNode.team;
 
     for (let i = 0; i < wonNode.children.length; i++) {
-      if (wonNode.children[i].team.name !== winner) {
-        looser = wonNode.children[i].team.name;
+      if (wonNode.children[i].team.id !== winner.id) {
+        looser = wonNode.children[i].team;
         break;
       }
     }

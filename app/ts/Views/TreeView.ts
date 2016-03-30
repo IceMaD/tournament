@@ -22,7 +22,7 @@ export class TreeView {
 
   ngOnInit() {
     if (!TeamHolderService.isFilled()) {
-      FlashService.push('You must register 2, 4, 8, 16 or 32 teams');
+      FlashService.push('Vous devez avoir 2, 4, 8, 16 ou 32 équipes');
       this._router.navigate(['TeamManagement']);
 
       return;
@@ -33,6 +33,6 @@ export class TreeView {
   }
 
   public toggleDebug() {
-    TreeManager.toggleDebug();
+    this.debug = TreeManager.toggleDebug();
   }
 }

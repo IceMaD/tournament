@@ -74,11 +74,15 @@ System.register(["../Models/NodeModel", "./TeamHolderService"], function(exports
                     this._tree = nodes[0];
                 };
                 TreeManager.toggleDebug = function () {
+                    var _this = this;
+                    this._degug = !this._degug;
                     this.forEachNode(function (node) {
-                        node.debug = !node.debug;
+                        node.debug = _this._degug;
                     });
+                    return this._degug;
                 };
                 TreeManager._nodes = [];
+                TreeManager._degug = false;
                 return TreeManager;
             }());
             exports_1("TreeManager", TreeManager);

@@ -49,7 +49,7 @@ System.register(["angular2/core", "angular2/router", "../Services/TeamHolderServ
                     router_1.RouteConfig([
                         { path: '/', name: 'TeamManagement', component: TeamManagementView_1.TeamManagementView, useAsDefault: true },
                         { path: '/tree', name: 'TreeComponent', component: TreeView_1.TreeView },
-                        { path: '/*path', redirectTo: ['TeamManagement'] },
+                        { path: '/*path', redirectTo: ['TeamManagement'] }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], TournamentAppComponent);

@@ -14,13 +14,10 @@ import {TreeView} from "../Views/TreeView";
 })
 
 @RouteConfig([
-
   {path: '/', name: 'TeamManagement', component: TeamManagementView, useAsDefault: true},
   {path: '/tree', name: 'TreeComponent', component: TreeView},
-  {path: '/*path', redirectTo:['TeamManagement']},
-
+  {path: '/*path', redirectTo:['TeamManagement']}
 ])
-
 export class TournamentAppComponent {
 
   private flashMessages: FlashMessageModel[];

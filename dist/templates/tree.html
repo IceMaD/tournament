@@ -1,18 +1,21 @@
 <div class="container --global">
-    <button (click)="toggleDebug()">debug</button>
+    <div class="button-bar">
+        <a class="button" [routerLink]="['TeamManagement']">Changer les équipes</a>
+        <button class="button" (click)="toggleDebug()">{{ debug ? "Retoruner à la vue normale" : "Debuger l'arbre" }}</button>
+    </div>
 
-    <hr>
+    <br><hr><br>
 
     <!-- GOGO node-ception -->
     <node class="node" [node]="tree" [ngClass]="{'--debug': tree.debug}" *ngIf="tree"></node>
 
-    <hr>
+    <br><hr><br>
 
     <div class="log" *ngIf="!log || log.length < 1">
         Quelle équipe à gagné le premier match ? ( Cliquez ! )
     </div>
 
     <div *ngFor="#match of log" class="log">
-        <span class="log_winner">{{ match.winner }}</span> a gagné face à <span class="log_looser">{{ match.looser }}</span>
+        <span class="log_winner">{{ match.winner.name }}</span> a gagné face à <span class="log_looser">{{ match.looser.name }}</span>
     </div>
 </div>
