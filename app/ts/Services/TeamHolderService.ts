@@ -113,7 +113,7 @@ export class TeamHolderService {
 
     for (let i = 0; i < wonNode.children.length; i++) {
       if (wonNode.children[i].team.id !== winner.id) {
-        looser = wonNode.children[i].team.name;
+        looser = wonNode.children[i].team;
         break;
       }
     }

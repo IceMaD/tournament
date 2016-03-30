@@ -7,7 +7,9 @@
     <br><hr><br>
 
     <!-- GOGO node-ception -->
-    <node class="node" [node]="tree" [ngClass]="{'--debug': tree.debug}" *ngIf="tree"></node>
+    <div style="overflow-x: auto; text-align: center;">
+        <node class="node --tree" [node]="tree" [ngClass]="{'--debug': tree.debug}" *ngIf="tree"></node>
+    </div>
 
     <br><hr><br>
 

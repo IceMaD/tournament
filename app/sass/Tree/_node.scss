@@ -3,6 +3,7 @@
     $title-background-color: $grey-clay;
     $clickable-background-color: $grey-slate;
     $title-text-color: $white-snow;
+    $default-border-color: $grey-slate;
 
     $winner-background-color: $yellow-gold;
     $won-background-color: $green-shamrock;
@@ -20,7 +21,7 @@
         }
     }
 
-    display: flex;
+    display: inline-flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
@@ -40,7 +41,7 @@
         &:after, &:before {
             content: "";
             position: absolute;
-            background-color: black;
+            background-color: $default-border-color;
         }
 
         &:after {
@@ -80,7 +81,7 @@
         &:before {
             content: "";
             position: absolute;
-            background-color: black;
+            background-color: $default-border-color;
             left: 100%;
             top: 50%;
             height: 1px;
